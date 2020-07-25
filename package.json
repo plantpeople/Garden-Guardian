@@ -24,6 +24,9 @@
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.3.16",
+    "mysql": "^2.18.1",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.41.2"
   }
 }
