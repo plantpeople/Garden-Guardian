@@ -1,11 +1,20 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Search from "./components/Search";
 import { useAuth0 } from "@auth0/auth0-react";
+import PlantCard from "./components/PlantCard";
+
+
 const App = () => {
-  return <Search />;
-};
+  return 
+  ( 
+  <div>
+    <Search />
+    <PlantCard />
+  </div>
+  );
+}
 
 export default App;
 
