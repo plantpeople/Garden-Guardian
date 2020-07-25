@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  queryApi: () => {
-    return axios.get("plants");
+  queryApi: (query) => {
+    return axios.get("plants/" + query);
   },
 };

@@ -7,11 +7,12 @@ router.route("/test").get((req, res) => {
   res.send("test works");
 });
 
-router.route("/plants").get( function (req, res) {
+router.route("/plants/:query").get( function (req, res) {
+  const query= req.params.query
   console.log(process.env.API_KEY)
   axios
     .get(
-      `https://trefle.io/api/v1/plants?token=${process.env.API_KEY}&filter_not[minimum_precipitation_mm]`
+      `https://trefle.io/api/v1/plants/search?token=${process.env.API_KEY}&q=${query}`
     )
     .then(function (response) {
       console.log(response.data.data);
