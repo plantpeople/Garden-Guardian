@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 import API from "../util/API";
 
+
 class Search extends Component {
   state = {
     searchQuery: "",
@@ -10,7 +11,13 @@ class Search extends Component {
   };
   componentDidMount() {
     console.log("mount");
-    API.queryApi().then((response) => console.log(response));
+    API.queryApi()
+      .then((response) => {
+        const resultsArray = response.data.map((e) => e.common_name);
+
+        this.setState({ searchResults: resultsArray });
+      })
+      .catch((error) => console.log(error));
   }
   handleInputChange = (e) => {
     const { value } = e.target;
@@ -24,7 +31,9 @@ class Search extends Component {
           value={this.state.searchQuery}
           handleInputChange={this.handleInputChange}
         />
-        <SearchResults />
+        <SearchResults 
+          plants={this.state.searchResults}
+        />
       </div>
     );
   }
