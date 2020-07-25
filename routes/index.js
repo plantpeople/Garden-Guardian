@@ -18,16 +18,6 @@ router.route("/plants/:query").get( function (req, res) {
       console.log(response.data.data);
       res.json(response.data.data)
     });
-  // Query to get minimum precipitation in mm on a single plant id
-  // axios
-  //   .get(
-  //     "https://trefle.io/api/v1/plants/103505?token=noGOGxi-VCXlxbadxLiVQunEDFVKnGxmlrFJOJmOSjM"
-  //   )
-  //   .then(function (response) {
-  //     console.log(
-  //       response.data.data.main_species.growth.minimum_precipitation.mm
-  //     );
-  //   });
 });
 
 module.exports = router;
