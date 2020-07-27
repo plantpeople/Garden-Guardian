@@ -1,13 +1,14 @@
 const express = require("express");
-const routes = require("./routes");
+const publicRoutes = require("./routes/publicRoutes");
+const privateRoutes = require("./routes/privateRoutes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
-var jwt = require("express-jwt");
-var jwks = require("jwks-rsa");
+const jwt = require("express-jwt");
+const jwks = require("jwks-rsa");
 
-var jwtCheck = jwt({
+const jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
@@ -19,16 +20,18 @@ var jwtCheck = jwt({
   algorithms: ["RS256"],
 });
 
-app.use(jwtCheck);
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(routes);
+// These routes aren't protected
+app.use(publicRoutes);
+
+// These routes are protected
+app.use(jwtCheck);
+app.use(privateRoutes);
 
 // Start the API server
 

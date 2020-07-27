@@ -2,10 +2,8 @@ const router = require("express").Router();
 const axios = require("axios");
 require("dotenv").config();
 
-router.route("/test").get((req, res) => {
-  console.log("test works");
-  console.log(req.headers);
-  res.send("test works");
+router.route("/testpublic").get((req, res) => {
+  res.json("public route works");
 });
 
 router.route("/plants/:query").get(function (req, res) {
