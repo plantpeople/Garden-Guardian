@@ -12,6 +12,7 @@ ReactDOM.render(
       domain={config.domain}
       clientId={config.clientId}
       redirectUri={window.location.origin}
+      audience={"https://quickstarts/api"}
     >
       <App />
     </Auth0Provider>
