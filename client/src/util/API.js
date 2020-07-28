@@ -18,4 +18,11 @@ export default {
   testPublic: () => {
     return axios.get("testpublic");
   },
+  addUser: (user, token) => {
+    return axios.post("api/users", user, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }})
+  }
 };
+
