@@ -5,11 +5,18 @@ import Search from "./components/Search";
 import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
 class App extends Component {
-  state = {};
+  state = {
+    userId: "",
+  };
 
   addToGarden() {
     // TODO: Create functionality to add plant to user's garden in database
     console.log("Clicking this button will add the plant to garden");
+  }
+
+  onLogin(userId) {
+    this.setState({ userId });
+    console.log(this.state.userId);
   }
 
   render() {
@@ -17,7 +24,7 @@ class App extends Component {
       <div>
         <Search />
         <PlantCard addToGarden={this.addToGarden} />
-        <Login />
+        <Login onLogin={this.onLogin.bind(this)} />
       </div>
     );
   }

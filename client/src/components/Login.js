@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../util/API";
 
-const Login = () => {
+const Login = (props) => {
   const {
     loginWithRedirect,
     logout,
@@ -11,24 +11,32 @@ const Login = () => {
     getAccessTokenSilently,
   } = useAuth0();
 
+  useEffect(
+    function () {
+      if (user) {
+        addUser();
+      }
+    },
+    [user]
+  );
+
   async function addUser() {
-    
-    const token = await getAccessTokenSilently()
+    const token = await getAccessTokenSilently();
     var newUser = {
       name: user.name,
-      sub: user.sub
-    }
-    
-    API.addUser(newUser, token).then(() => {
-      console.log("user added")
-      //to-do: possibly insert option i.e. "see my garden"
-    }
-    )
-    
-  }
+      sub: user.sub,
+    };
 
-  if (user)
-    addUser();
+    API.addUser(newUser, token)
+      .then(() => {
+        console.log("user added");
+        props.onLogin(user.sub);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    //to-do: possibly insert option i.e. "see my garden"
+  }
 
   return (
     <div>
