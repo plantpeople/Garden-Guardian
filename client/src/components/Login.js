@@ -11,6 +11,25 @@ const Login = () => {
     getAccessTokenSilently,
   } = useAuth0();
 
+  async function addUser() {
+    
+    const token = await getAccessTokenSilently()
+    var newUser = {
+      name: user.name,
+      sub: user.sub
+    }
+    
+    API.addUser(newUser, token).then(() => {
+      console.log("user added")
+      //to-do: possibly insert option i.e. "see my garden"
+    }
+    )
+    
+  }
+
+  if (user)
+    addUser();
+
   return (
     <div>
       <button
