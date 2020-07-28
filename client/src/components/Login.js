@@ -28,9 +28,9 @@ const Login = (props) => {
     };
 
     API.addUser(newUser, token)
-      .then(() => {
+      .then((dbUser) => {
         console.log("user added");
-        props.onLogin(user.sub);
+        props.onLogin(dbUser.id, token);
       })
       .catch((err) => {
         console.log(err);

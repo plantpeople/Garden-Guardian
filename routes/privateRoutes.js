@@ -42,8 +42,17 @@ router.route("/api/users").post(function (req, res) {
     }
     res.json(dbUser);
   });
-
-  // If there is a user, send the saved plants
 });
+
+// TODO: create add plant route
+router.route("/api/add-plant").post(function (req, res) {
+  console.log(req.body);
+
+  db.Plant.create(req.body).then(function (dbPlant) {
+    res.json(dbPlant);
+  });
+});
+
+// TODO: create send plants route
 
 module.exports = router;
