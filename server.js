@@ -1,5 +1,6 @@
 const express = require("express");
-
+var connection;
+var mysql = require("mysql")
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
