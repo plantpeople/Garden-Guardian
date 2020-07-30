@@ -19,9 +19,9 @@ const jwtCheck = jwt({
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 // These routes aren't protected
 app.use(publicRoutes);
 // These routes are protected
