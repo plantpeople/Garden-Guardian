@@ -3,9 +3,13 @@ import React from "react";
 const Day = (props) => {
   return (
     <div>
-      <h1>{props.day}</h1>
-      <p>{props.willRain ? "rained" : "didnt rain"}</p>
-      <p>{props.shouldWater ? "should water" : "dont water"}</p>
+      <div className="day">
+        <h1>{props.day}</h1>
+        <div className="water-info">
+          <p>{props.willRain ? "rained" : "didnt rain"}</p>
+          <p>{props.shouldWater ? "should water" : "dont water"}</p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -18,8 +18,10 @@ const GardenPage = (props) => {
 
   return (
     <div>
-      {plantCards}
-      <Calendar waterDays={plantsArray[0].waterDays} />
+      <div className="my-garden">
+        <div className="plants">{plantCards}</div>
+        <Calendar waterDays={plantsArray[0].waterDays} />
+      </div>
     </div>
   );
 };

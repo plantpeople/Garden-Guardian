@@ -16,3 +16,8 @@
 .card > .img-container > img {
   width: 100%;
 }
+.day {
+  background: #999;
+  display: flex;
+  flex-flow: row nowrap;
+}
