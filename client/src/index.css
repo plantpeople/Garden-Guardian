@@ -1,7 +1,7 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  height: 225px;
+  height: auto;
   margin: 1rem;
   position: relative;
   width: 200px;
@@ -9,10 +9,15 @@
   text-align: left;
 }
 .card > .img-container {
-  height: 60%;
+  height: 200px;
   overflow: hidden;
   text-align: center;
 }
 .card > .img-container > img {
   width: 100%;
+}
+.day {
+  background: #999;
+  display: flex;
+  flex-flow: row nowrap;
 }
