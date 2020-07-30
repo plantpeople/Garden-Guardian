@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, DataTypes) => {
   const Plant = sequelize.define("Plant", {
     name: DataTypes.STRING,
