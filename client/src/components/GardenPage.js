@@ -1,5 +1,6 @@
 import React from "react";
 import PlantCard from "./PlantCard";
+import Calendar from "./Calendar";
 
 const GardenPage = (props) => {
   let { plantsArray } = props;
@@ -15,7 +16,12 @@ const GardenPage = (props) => {
     />
   ));
 
-  return <div>{plantCards}</div>;
+  return (
+    <div>
+      {plantCards}
+      <Calendar waterDays={plantsArray[0].waterDays} />
+    </div>
+  );
 };
 
 export default GardenPage;
