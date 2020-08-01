@@ -8,14 +8,16 @@ router.route("/testpublic").get((req, res) => {
 
 router.route("/plants/:query").get(function (req, res) {
   const query = req.params.query;
-  console.log(process.env.API_KEY);
   axios
     .get(
-      `https://trefle.io/api/v1/plants/search?token=${process.env.API_KEY}&q=${query}`
+      `https://trefle.io/api/v1/plants/search?token=${process.env.TREFLE_KEY}&q=${query}`
     )
     .then(function (response) {
       console.log(response.data.data);
       res.json(response.data.data);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 
