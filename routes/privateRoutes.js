@@ -21,20 +21,54 @@ router.route("/plants/:query").get(function (req, res) {
     });
 });
 
-router.route("/api/users").post(function(req, res) {
+router.route("/api/user").post(function(req, res){
+console.log(req.body);
+db.User.findOne({
+  where: {
+    sub: req.body.sub,
+  },
+}).then(function (dbUser) {
+  if(!dbUser){
+    db.User.create({
+      name: req.body.name,
+      sub:req.body.sub,
+
+    }).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  }
+  })
+})
+
+//this will completely remove from being associated w/ user, remove from db
+router.route("/api/plant/:id").delete(function(req, res) {
+  db.Plant.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(dbPlant) {
+    res.json(dbPlant);
+  });
+}
+)
+
+router.route("/api/add-plant").post(function(req, res) {
   console.log(req.body);
-  // create takes an argument of an object describing the item we want to
-  // insert into our table. In this case we just we pass in an object with a text
-  // and complete property (req.body)
-  db.User.create({
+  db.Plant.create({
     name: req.body.name,
-    sub: req.body.sub
-  }).then(function(dbUser) {
-    // We have access to the new todo as an argument inside of the callback function
-    res.json(dbUser);
+    imageUrl: req.body.imageUrl,
+    userId: req.body.userId,
+    inGarden: req.body.inGarden
+  }).then(function(dbPlant) {
+    res.json(dbPlant);
   });
 })
 ;
+
+
+//save plant = part of row
+//will need put routes to make changes to garden, add notes -- consider this being changes to user (ex, notes added to user & displayed on garden 'view,' whatever we dexcide that is)
 
 
 module.exports = router;

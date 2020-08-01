@@ -20,9 +20,25 @@ export default {
   },
   addUser: (user, token) => {
     return axios.post("api/users", user, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    }})
-  }
-};
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
+  addPlant: (plant, token) => {
+    return axios.post("/api/add-plant", plant, { //needs "partner" in privateRoutes so server gets request
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
 
+
+  // addPlant: (plant, token) => {
+  //   return axios.put("api/add-plant", plant, {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+
+
+};
