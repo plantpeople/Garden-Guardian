@@ -4,6 +4,7 @@ import "./App.css";
 import Search from "./components/Search";
 import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
+import GardenPage from "./components/GardenPage";
 import API from "./util/API";
 
 // let gardenListArray = []
@@ -68,8 +69,8 @@ class App extends Component {
         />
         <Login onLogin={this.onLogin.bind(this)} />
         <Login />
-        <GardenPage />
-          plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+        <GardenPage 
+          plantsArray={this.state.user.plants.filter((p) => p.inGarden)}/>
         {/* <Title>My Garden</Title> */}
         {/* {this.state.plantsAdded.map(plantsAdded => (
           <PlantCard

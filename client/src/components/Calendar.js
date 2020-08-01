@@ -1,5 +1,6 @@
 import React from "react";
 import Day from "./Day";
+import API from "../util/API";
 
 // props:
 // - willRain
@@ -11,10 +12,20 @@ const Calendar = (props) => {
   let n = 10;
   let odds = 0.3;
   const rainDays = [];
-  while (n > 0) {
-    rainDays.push(Math.random() < odds);
-    n--;
+
+  const getWeather = () => {
+    console.log("getWeather called")
+    API.getWeather(53202)
+    .then(() => {
+    })
   }
+
+
+  // while (n > 0) {
+  //   rainDays.push(Math.random() < odds);
+  //   n--;
+  // }
+
   const today = 1;
   var day = 1;
   var daysUntil = props.waterDays;
@@ -42,7 +53,13 @@ const Calendar = (props) => {
     day++;
   }
 
-  return <div>{daysArray}</div>;
+  return (
+  <div>
+    {daysArray}
+    <button onClick ={() => getWeather()}>
+    "get the weather"</button>
+  </div>
+  );
 };
 
 export default Calendar;

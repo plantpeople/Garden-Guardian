@@ -33,7 +33,9 @@ export default {
     });
   },
 
-
+getWeather: (zip) => {
+  return axios.get("/weather/" + zip);
+}
   // addPlant: (plant, token) => {
   //   return axios.put("api/add-plant", plant, {
   //     headers: {
