@@ -21,38 +21,54 @@ router.route("/plants/:query").get(function (req, res) {
     });
 });
 
-// Create user route
-router.route("/api/users").post(function (req, res) {
-  console.log(req.body);
+router.route("/api/user").post(function(req, res){
+console.log(req.body);
+db.User.findOne({
+  where: {
+    sub: req.body.sub,
+  },
+}).then(function (dbUser) {
+  if(!dbUser){
+    db.User.create({
+      name: req.body.name,
+      sub:req.body.sub,
 
-  // Check to see if user exists
-  db.User.findOne({
+    }).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  }
+  })
+})
+
+//this will completely remove from being associated w/ user, remove from db
+router.route("/api/plant/:id").delete(function(req, res) {
+  db.Plant.destroy({
     where: {
-      sub: req.body.sub,
-    },
-  }).then(function (dbUser) {
-    // If dbUser does not exist, create user
-    if (!dbUser) {
-      db.User.create({
-        name: req.body.name,
-        sub: req.body.sub,
-      }).then(function (dbUser) {
-        res.json(dbUser);
-      });
+      id: req.params.id
     }
-    res.json(dbUser);
-  });
-});
-
-// TODO: create add plant route
-router.route("/api/add-plant").post(function (req, res) {
-  console.log(req.body);
-
-  db.Plant.create(req.body).then(function (dbPlant) {
+  })
+  .then(function(dbPlant) {
     res.json(dbPlant);
   });
-});
+}
+)
 
-// TODO: create send plants route
+router.route("/api/add-plant").post(function(req, res) {
+  console.log(req.body);
+  db.Plant.create({
+    name: req.body.name,
+    imageUrl: req.body.imageUrl,
+    userId: req.body.userId,
+    inGarden: req.body.inGarden
+  }).then(function(dbPlant) {
+    res.json(dbPlant);
+  });
+})
+;
+
+
+//save plant = part of row
+//will need put routes to make changes to garden, add notes -- consider this being changes to user (ex, notes added to user & displayed on garden 'view,' whatever we dexcide that is)
+
 
 module.exports = router;

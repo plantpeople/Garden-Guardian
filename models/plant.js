@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     notes: DataTypes.STRING,
-
     inGarden: DataTypes.BOOLEAN,
 
     // family: DataTypes.STRING,
@@ -24,3 +23,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Plant;
 };
+
+
+//don't need my garden model bc have boolean value & only one garden per user

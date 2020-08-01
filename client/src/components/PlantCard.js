@@ -12,9 +12,9 @@ const PlantCard = (props) => {
 
         <div className="content">
           <p>
-            <strong> Name: </strong>
+            <strong> Name: </strong> {props.name}
           </p>
-          <button onClick={() => props.addToGarden(props.name, props.imageUrl)}>
+          <button className="add-btn" onClick={() => props.addToGarden(props.name, props.imageUrl)}>
             Add to my garden
           </button>
         </div>
