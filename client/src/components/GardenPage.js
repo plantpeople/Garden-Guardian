@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 import Calendar from "./Calendar";
-
+import API from "../util/API";
 const GardenPage = (props) => {
+  const [weatherLoaded, setWeatherLoaded] = useState(false);
+  const [rainDays, setRainDays] = useState([]);
   let { plantsArray } = props;
-  // plantsArray = [{ name: "plant 1" }, { name: "plant 2" }, { name: "plant 3" }];
+  const getWeather = () => {
+    console.log("getWeather called");
+    API.getWeather(53202).then((response) => {
+      console.log(response.data);
+      setRainDays(response.data);
+      setWeatherLoaded(true);
+    });
+  };
+
+  useEffect(getWeather, []);
 
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
@@ -20,7 +31,9 @@ const GardenPage = (props) => {
     <div>
       <div className="my-garden">
         <div className="plants">{plantCards}</div>
-        <Calendar waterDays={plantsArray[0].waterDays} />
+        {weatherLoaded ? (
+          <Calendar waterDays={plantsArray[0].waterDays} rainDays={rainDays} />
+        ) : null}
       </div>
     </div>
   );
