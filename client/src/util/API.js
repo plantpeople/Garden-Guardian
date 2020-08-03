@@ -26,19 +26,20 @@ export default {
     });
   },
   addPlant: (plant, token) => {
-    return axios.post("/api/add-plant", plant, { //needs "partner" in privateRoutes so server gets request
+    return axios.post("/api/add-plant", plant, {
+      //needs "partner" in privateRoutes so server gets request
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
   },
 
-
+  getWeather: (zip) => {
+    return axios.get("/weather/" + zip);
+  },
   // addPlant: (plant, token) => {
   //   return axios.put("api/add-plant", plant, {
   //     headers: {
   //       Authorization: `Bearer ${token}`,
   //     },
-
-
 };

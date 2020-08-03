@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Day from "./Day";
+import API from "../util/API";
 
 // props:
 // - willRain
@@ -7,15 +8,16 @@ import Day from "./Day";
 // - dayNumber (day of week)
 
 const Calendar = (props) => {
+  const rainDays = props.rainDays;
   // Display the next 10 days relative to today
   let n = 10;
   let odds = 0.3;
-  const rainDays = [];
-  while (n > 0) {
-    rainDays.push(Math.random() < odds);
-    n--;
-  }
-  const today = 1;
+
+  // while (n > 0) {
+  //   rainDays.push(Math.random() < odds);
+  //   n--;
+  // }
+
   var day = 1;
   var daysUntil = props.waterDays;
   var daysArray = [];
