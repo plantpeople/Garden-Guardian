@@ -9,6 +9,7 @@ import API from "../util/API";
 
 const Calendar = (props) => {
   const rainDays = props.rainDays;
+  console.log("rainDays:",rainDays)
   // Display the next 10 days relative to today
   let n = 10;
   let odds = 0.3;
@@ -18,13 +19,14 @@ const Calendar = (props) => {
   //   n--;
   // }
 
-  var day = 1;
+  var day = 0;
   var daysUntil = props.waterDays;
   var daysArray = [];
   var shouldWater = false;
 
-  while (day < 11) {
+  while (day < 8) {
     let willRain = rainDays[day];
+    console.log("willRain: ",willRain)
     daysArray.push(
       <Day key={day} day={day} willRain={willRain} shouldWater={shouldWater} />
     );
@@ -34,7 +36,7 @@ const Calendar = (props) => {
     }
     daysUntil--;
     if (daysUntil === 0) {
-      shouldWater = true;
+      shouldWater = true; 
       if (rainDays[day + 1]) {
         shouldWater = false;
       }

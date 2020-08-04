@@ -19,7 +19,7 @@ export default {
     return axios.get("testpublic");
   },
   addUser: (user, token) => {
-    return axios.post("api/users", user, {
+    return axios.post("api/user", user, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

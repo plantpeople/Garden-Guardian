@@ -36,7 +36,6 @@ router.route("/plants/:query").get(function (req, res) {
 
 router.route("/weather/:zip_code").get(function (req, res) {
   const zip = req.params.zip_code;
-  console.log(process.env.WEATHER_KEY);
   axios
     .get(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${43.06}&lon=${87.91}&appid=${
@@ -46,7 +45,7 @@ router.route("/weather/:zip_code").get(function (req, res) {
     .then((response) => {
       const rainDays = [];
       response.data.daily.forEach((element) => {
-        console.log(element.weather[0].main);
+        console.log("weather is: ",element.weather[0].main);
         if (element.weather[0].main === "Rain") {
           rainDays.push(true);
         } else {

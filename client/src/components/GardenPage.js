@@ -9,7 +9,7 @@ const GardenPage = (props) => {
   const getWeather = () => {
     console.log("getWeather called");
     API.getWeather(53202).then((response) => {
-      console.log(response.data);
+      console.log("weather is:",response.data);
       setRainDays(response.data);
       setWeatherLoaded(true);
     });
