@@ -46,7 +46,7 @@ const Calendar = (props) => {
     day++;
   }
 
-  return <div>{daysArray}</div>;
+  return <div className="calendar">{daysArray}</div>;
 };
 
 export default Calendar;
