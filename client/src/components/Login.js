@@ -39,16 +39,18 @@ const Login = (props) => {
   }
 
   return (
-    <div>
+    <div className="login">
       <button
+      className="button-2"
         onClick={() => {
           loginWithRedirect();
         }}
       >
         Login
       </button>
-      <button onClick={logout}>Logout</button>
+      <button  className="button-2" onClick={logout}>Logout</button>
       <button
+      className="button-2"
         onClick={() => {
           console.log(user);
           console.log(isAuthenticated);
@@ -59,7 +61,7 @@ const Login = (props) => {
       {isAuthenticated && (
         <>
           <div>
-            <h2>{user.name}</h2>
+           
             <p>{user.email}</p>
           </div>
         </>

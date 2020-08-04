@@ -1,16 +1,72 @@
-
+body {
+  background-image: url(Screen\ Shot\ 2020-08-01\ at\ 12.25.38\ PM.png);
+}
 
 .mainContent{
   background-color: lightgrey;
   margin:  auto;
-  width: 80%;
+  width: 90%;
   border: #cccccc 1px;
-  opacity: 80%;
+  opacity: 90%;
+}
+
+.login{
+  margin: auto;
+  display: flex;
+  margin-bottom: 20%;
+}
+
+.button-2 {
+  background-color: green;
+  width: 15%;
+  height: 50px;
+  margin-left: 2%;
+  padding: 1%;
+  text-align: center;
+  border-radius: 0px 4px 4px 4px;
+}
+
+.logo {
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 15%;
+}
+
+.search-container {
+  margin: auto;
+  width: 70%;
+  margin-bottom: 20%;
+ 
+    
+}
+
+.search-bar{
+  width: 80%;
+  height: 25px;
+  border-radius: 4px;
+}
+
+.button {
+  background-color: lightgray;
+  width: 15%;
+  height: 30px;
+  margin-left: 1%;
+  padding: 1%;
+  text-align: center;
+  border-radius: 4px;
+
+}
+
+.card-container {
+  display: inline;
+  background-color: green;
 }
 
 .card {
   
-  background: #fff;
+  background: whitesmoke;
+  border: solid green 1px;
+
   border-radius: 2px;
   height: auto;
   margin: 1rem;
@@ -30,8 +86,8 @@
   width: 100%;
 }
 .day {
-  background: #cccccc;
-  opacity: 90%;
+  background: whitesmoke;
+  
   /* flex-flow: row nowrap; */
   margin: 7%;
   padding: 5px 10px 25px 10px;
@@ -46,4 +102,5 @@
   display: flex;
   margin: auto;
   align-content: center;
+  width: 90%;
 }
