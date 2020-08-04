@@ -1,11 +1,27 @@
 import React from "react";
+import PlantCard from "./PlantCard"
+import API from "./../util/API"
+import SavedPlant from "./SavedPlant";
 
 const SearchResults = (props) => {
-  const{plants} = props
-const plantNames = plants.map(e => (<p>{e}</p>))
+  const{plants, savePlant} = props;
+  console.log(props);
 
-  return <div>{plantNames}</div>;
+const plantCards = plants.map((plant) => (
+  <PlantCard
+    garden={false}
+    handleClick={() => savePlant(plant)}
+    key={plant.name}
+    name={plant.name}
+    image={plant.image}
+  />
+));
 
+  return (
+  <div>
+  {plantCards}
+  </div>
+);
 };
 
 export default SearchResults;

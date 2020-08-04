@@ -27,7 +27,10 @@ const PlantCard = (props) => {
             <strong> Name: {props.name} </strong>
           </p>
           <button onClick={handleClick}>{buttonName}</button>
-          <div>
+
+          { garden ?
+            <div>
+          
             <span>Water this</span>
             <select
               value={waterDays}
@@ -46,6 +49,7 @@ const PlantCard = (props) => {
             </select>
             <span>times per week</span>
           </div>
+          : null}
 
                      {/* <strong> Name: </strong> {props.name}
           </p>

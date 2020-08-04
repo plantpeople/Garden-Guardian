@@ -30,19 +30,27 @@ class App extends Component {
     console.log(name);
     const plantsAdded = this.state.plantsAdded.push(plant => plant.name !== name);
 
-    // const addPlant = this.setState.PlantCard
-
     var newPlant = {
       name: name,
       imageUrl: imageUrl,
       userId: this.state.userId,
       inGarden: true
     };
+  }
+    savePlant (name, imageUrl) {
+      console.log(this);
+    
+      var newPlant = {
+        name: name,
+        imageUrl: imageUrl,
+        userId: this.state.userId,
+        inGarden: false
+      };
+      console.log(newPlant);
 
     // TODO: fix userId being undefined
 
     API.addPlant(newPlant, this.state.token).then((dbPlant) => {
-      this.setState({ plantsAdded })
        //need to show user that the plant has been 'added' to their garden
        //incorporate catch method in case sthg wrong happens
     }).catch(err => console.log(err));
@@ -61,7 +69,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Search />
+        <Search 
+          savePlant={this.savePlant.bind(this)}
+     
+        />
         <PlantCard
           addToGarden={this.addToGarden}
           name="onion"

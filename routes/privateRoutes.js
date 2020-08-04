@@ -36,6 +36,8 @@ db.User.findOne({
     }).then(function (dbUser) {
       res.json(dbUser);
     });
+  } else {
+    res.json(dbUser);
   }
   })
 })
@@ -57,7 +59,7 @@ router.route("/api/add-plant").post(function(req, res) {
   console.log(req.body);
   db.Plant.create({
     name: req.body.name,
-    imageUrl: req.body.imageUrl,
+    image: req.body.image,
     userId: req.body.userId,
     inGarden: req.body.inGarden
   }).then(function(dbPlant) {
