@@ -5,9 +5,11 @@ body {
 .mainContent{
   background-color: lightgrey;
   margin:  auto;
+  margin-top: -1.25%;
   width: 90%;
   border: #cccccc 1px;
   opacity: 90%;
+  border: solid 1px green;
 }
 
 .login{
@@ -16,14 +18,19 @@ body {
   margin-bottom: 20%;
 }
 
+.username {
+  margin-left: 50%;
+}
+
 .button-2 {
   background-color: green;
+  color: white;
   width: 15%;
   height: 50px;
-  margin-left: 2%;
+  margin-left: 1%;
   padding: 1%;
   text-align: center;
-  border-radius: 0px 4px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
 }
 
 .logo {
@@ -47,7 +54,8 @@ body {
 }
 
 .button {
-  background-color: lightgray;
+  background-color: green;
+  color: white;
   width: 15%;
   height: 30px;
   margin-left: 1%;
@@ -101,6 +109,6 @@ body {
 .calendar {
   display: flex;
   margin: auto;
-  align-content: center;
-  width: 90%;
+  width: 80%;
+  margin: 10%;
 }

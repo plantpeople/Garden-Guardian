@@ -62,7 +62,7 @@ const Login = (props) => {
         <>
           <div>
            
-            <p>{user.email}</p>
+            <p className="username">{user.email}</p>
           </div>
         </>
       )}
