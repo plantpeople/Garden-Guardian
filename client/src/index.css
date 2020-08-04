@@ -1,3 +1,13 @@
+
+
+.mainContent{
+  background-color: lightgrey;
+  margin:  auto;
+  width: 80%;
+  border: #cccccc 1px;
+  opacity: 80%;
+}
+
 .card {
   
   background: #fff;

@@ -60,7 +60,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mainContent">
         <Search />
         <PlantCard
           addToGarden={this.addToGarden}
@@ -68,7 +68,7 @@ class App extends Component {
           imageUrl="https://bs.floristic.org/image/o/c6e885c91752dde563029b0a6d1448ecc4ca19ca"
         />
         <Login onLogin={this.onLogin.bind(this)} />
-        <Login />
+       
         <GardenPage 
           plantsArray={this.state.user.plants.filter((p) => p.inGarden)}/>
         {/* <Title>My Garden</Title> */}
