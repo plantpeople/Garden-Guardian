@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 import Calendar from "./Calendar";
 import API from "../util/API";
+import "../index.css"
 const GardenPage = (props) => {
   const [weatherLoaded, setWeatherLoaded] = useState(false);
   const [rainDays, setRainDays] = useState([]);
