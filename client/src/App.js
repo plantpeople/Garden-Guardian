@@ -60,15 +60,19 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Search />
+      <div className="mainContent">
+        <Login onLogin={this.onLogin.bind(this)} />
+        <h1 className="logo">Garden Guardians</h1>
+        <Search className="search-container" />
         <PlantCard
+        className="plant-container"
           addToGarden={this.addToGarden}
           name="onion"
           imageUrl="https://bs.floristic.org/image/o/c6e885c91752dde563029b0a6d1448ecc4ca19ca"
         />
-        <Login onLogin={this.onLogin.bind(this)} />
-        <Login />
+       
+
+       
         <GardenPage 
           plantsArray={this.state.user.plants.filter((p) => p.inGarden)}/>
         {/* <Title>My Garden</Title> */}

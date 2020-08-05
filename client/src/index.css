@@ -1,14 +1,89 @@
+body {
+  background-image: url(Screen\ Shot\ 2020-08-01\ at\ 12.25.38\ PM.png);
+}
+
+.mainContent{
+  background-color: lightgrey;
+  margin:  auto;
+  margin-top: -1.25%;
+  width: 90%;
+  border: #cccccc 1px;
+  opacity: 90%;
+  border: solid 1px green;
+}
+
+.login{
+  margin: auto;
+  display: flex;
+  margin-bottom: 20%;
+}
+
+.username {
+  margin-left: 50%;
+}
+
+.button-2 {
+  background-color: green;
+  color: white;
+  width: 15%;
+  height: 50px;
+  margin-left: 1%;
+  padding: 1%;
+  text-align: center;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.logo {
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 15%;
+}
+
+.search-container {
+  margin: auto;
+  width: 70%;
+  margin-bottom: 20%;
+}
+
+.search-bar{
+  width: 80%;
+  height: 25px;
+  border-radius: 4px;
+}
+
+.button {
+  background-color: green;
+  color: white;
+  width: 15%;
+  height: 30px;
+  margin-left: 1%;
+  padding: 1%;
+  text-align: center;
+  border-radius: 4px;
+
+}
+
+.card-container {
+  display: inline;
+  background-color: green;
+}
+
 .card {
-  background: #fff;
+  
+  background: whitesmoke;
+  border: solid green 1px;
+
   border-radius: 2px;
   height: auto;
   margin: 1rem;
   position: relative;
   width: 200px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  text-align: left;
+  text-align: center;
+  padding: 2%;
 }
 .card > .img-container {
+
   height: 200px;
   overflow: hidden;
   text-align: center;
@@ -17,7 +92,21 @@
   width: 100%;
 }
 .day {
-  background: #999;
+  background: whitesmoke;
+  
+  /* flex-flow: row nowrap; */
+  margin: 7%;
+  padding: 5px 10px 25px 10px;
+  text-align: center;
+  max-height: 70%;
+  max-width: 100%;
+  border: solid green 1px;
+  border-radius: 4px;
+}
+
+.calendar {
   display: flex;
-  flex-flow: row nowrap;
+  margin: auto;
+  width: 80%;
+  margin: 10%;
 }
