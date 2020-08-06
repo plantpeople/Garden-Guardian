@@ -30,7 +30,8 @@ const Login = (props) => {
     API.addUser(newUser, token)
       .then((dbUser) => {
         console.log("user added");
-        props.onLogin(dbUser.id, token);
+        props.onLogin(dbUser.data.id, token);
+        console.log(dbUser);
       })
       .catch((err) => {
         console.log(err);

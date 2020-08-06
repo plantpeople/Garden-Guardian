@@ -37,12 +37,12 @@ class App extends Component {
       inGarden: true
     };
   }
-    savePlant (name, imageUrl) {
+    savePlant (plant) {
       console.log(this);
     
       var newPlant = {
-        name: name,
-        imageUrl: imageUrl,
+        name: plant.name,
+        imageUrl: plant.imageUrl,
         userId: this.state.userId,
         inGarden: false
       };
@@ -79,7 +79,7 @@ class App extends Component {
           imageUrl="https://bs.floristic.org/image/o/c6e885c91752dde563029b0a6d1448ecc4ca19ca"
         />
         <Login onLogin={this.onLogin.bind(this)} />
-        <Login />
+    
         <GardenPage 
           plantsArray={this.state.user.plants.filter((p) => p.inGarden)}/>
         {/* <Title>My Garden</Title> */}

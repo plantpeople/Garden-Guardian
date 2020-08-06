@@ -5,7 +5,6 @@ import SavedPlant from "./SavedPlant";
 
 const SearchResults = (props) => {
   const{plants, savePlant} = props;
-  console.log(props);
 
 const plantCards = plants.map((plant) => (
   <PlantCard

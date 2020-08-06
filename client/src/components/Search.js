@@ -32,7 +32,6 @@ class Search extends Component {
   handleInputChange = (e) => {
     const { value } = e.target;
     this.setState({ searchQuery: value });
-    console.log(this.state.searchQuery)
   };
 
   render() {

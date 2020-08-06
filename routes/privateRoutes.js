@@ -60,7 +60,7 @@ router.route("/api/add-plant").post(function(req, res) {
   db.Plant.create({
     name: req.body.name,
     image: req.body.image,
-    userId: req.body.userId,
+    UserId: req.body.userId,
     inGarden: req.body.inGarden
   }).then(function(dbPlant) {
     res.json(dbPlant);
