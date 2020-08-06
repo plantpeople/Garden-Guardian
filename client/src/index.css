@@ -3,6 +3,7 @@ body {
 }
 
 .mainContent{
+  font-family: 'Antic Slab', serif;
   background-color: lightgrey;
   margin:  auto;
   margin-top: -1.25%;
@@ -20,9 +21,12 @@ body {
 
 .username {
   margin-left: 50%;
+  font-size: 15;
 }
 
 .button-2 {
+  font-family: 'Antic Slab', serif;
+  font-size: 20px;
   background-color: green;
   color: white;
   width: 15%;
@@ -94,14 +98,19 @@ body {
 .day {
   background: whitesmoke;
   
-  /* flex-flow: row nowrap; */
-  margin: 7%;
+  flex-flow: row nowrap;
+  margin: 20%;
   padding: 5px 10px 25px 10px;
   text-align: center;
-  max-height: 70%;
-  max-width: 100%;
+  min-height: 70%;
+  min-width: 80%;
   border: solid green 1px;
   border-radius: 4px;
+}
+
+.day p {
+  margin: auto;
+  padding: 1%;
 }
 
 .calendar {
