@@ -30,8 +30,8 @@ const GardenPage = (props) => {
   ));
 
   return (
-    <div>
-      <div className="my-garden">
+    <div  className="myGarden">
+      <div>
         <div className="plants">{plantCards}</div>
         {weatherLoaded ? (
           <Calendar waterDays={plantsArray[0].waterDays} rainDays={rainDays} />
