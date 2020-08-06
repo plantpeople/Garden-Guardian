@@ -65,14 +65,14 @@ body {
 
 .card-container {
   display: inline;
-  background-color: green;
+  
 }
 
 .card {
   
   background: whitesmoke;
   border: solid green 1px;
-
+  max-height: 100%;
   border-radius: 2px;
   height: auto;
   margin: 1rem;
@@ -110,3 +110,10 @@ body {
   width: 80%;
   margin: 10%;
 }
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
