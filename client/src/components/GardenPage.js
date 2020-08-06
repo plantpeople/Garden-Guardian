@@ -38,11 +38,6 @@ const GardenPage = (props) => {
             rainDays={rainDays}
           />
         ) : null}
-
-        {/* Create a Calendar w/ water data from the first plant in plantsArray */}
-        {/* {weatherLoaded ? (
-          <Calendar waterDays={plantsArray[0].waterDays} rainDays={rainDays} />
-        ) : null} */}
       </div>
     </div>
   );

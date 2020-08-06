@@ -7,11 +7,12 @@ const Day = (props) => {
   // Loop through array to create JSX partial for each plant
   props.plantWaterArray.forEach((plant) => {
     plantItems.push(
-    <div>
-      <p>Name: {plant.name}</p>
-      <p>Water today? {plant.shouldWaterArray[props.day]}</p>
-    </div>);
-  })
+      <div>
+        <p>Name: {plant.name}</p>
+        <p>Water today? {plant.shouldWaterArray[props.day] ? "yes" : "no"}</p>
+      </div>
+    );
+  });
 
   return (
     <div>
@@ -19,12 +20,7 @@ const Day = (props) => {
         <h1>{props.day}</h1>
         <div className="water-info">
           <p>{props.willRain ? "rained" : "didnt rain"}</p>
-
-          {/* For each plant in the plantWaterArray...
-                - Display plant name
-                - Display whether or not plant should be watered that day */}
-
-              <p>{plantItems}</p>
+          <div>{plantItems}</div>
         </div>
       </div>
     </div>

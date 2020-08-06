@@ -15,7 +15,7 @@ const Calendar = (props) => {
   // Create a new array to hold water data for each plant
   var plantWaterArray = [];
 
-  // Loop through plantsArray and get water data for each day for each plant
+  // Loop through plantsArray and get water data for each plant for each day
   plantsArray.forEach((plant) => {
     // Create a new array to hold whether or not plant should be watered on each day
     var shouldWaterArray = [];
@@ -24,6 +24,7 @@ const Calendar = (props) => {
     // This is based on # of times to water per week that user chose in dropdown
     var daysUntil = plant.waterDays;
 
+    // Loop through 8 days
     while (day < 8) {
       // Grab whether or not it will rain on this day
       let willRain = rainDays[day];
@@ -80,6 +81,8 @@ const Calendar = (props) => {
         plantWaterArray={plantWaterArray}
       />
     );
+
+    day++;
   }
 
   return <div className="calendar">{daysArray}</div>;
