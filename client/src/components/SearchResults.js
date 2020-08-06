@@ -6,11 +6,11 @@ import SavedPlant from "./SavedPlant";
 const SearchResults = (props) => {
   const{plants, savePlant} = props;
 
-const plantCards = plants.map((plant) => (
+const plantCards = plants.map((plant, index) => (
   <PlantCard
     garden={false}
     handleClick={() => savePlant(plant)}
-    key={plant.name}
+    key={index}
     name={plant.name}
     image={plant.image}
   />

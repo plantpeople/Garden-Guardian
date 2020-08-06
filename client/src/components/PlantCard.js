@@ -19,7 +19,7 @@ const PlantCard = (props) => {
       <div className="card">
         <div className="img-container">
           {/* TODO: Figure out a good way to resize images to fit card */}
-          <img name={props.name} src={props.imageUrl} alt="plant" />
+          <img name={props.name} src={props.image} alt="plant" />
         </div>
 
         <div className="content">
