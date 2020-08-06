@@ -13,7 +13,6 @@ router.route("/plants/:query").get(function (req, res) {
       `https://trefle.io/api/v1/plants/search?token=${process.env.TREFLE_KEY}&q=${query}`
     )
     .then(function (response) {
-      console.log(response.data.data);
       res.json(response.data.data);
     })
     .catch((err) => {

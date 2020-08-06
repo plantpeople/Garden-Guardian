@@ -10,13 +10,12 @@ router.route("/testprivate").get((req, res) => {
 
 router.route("/plants/:query").get(function (req, res) {
   const query = req.params.query;
-  console.log(process.env.API_KEY);
+  
   axios
     .get(
       `https://trefle.io/api/v1/plants/search?token=${process.env.API_KEY}&q=${query}`
     )
     .then(function (response) {
-      console.log(response.data.data);
       res.json(response.data.data);
     });
 });
@@ -32,12 +31,18 @@ db.User.findOne({
     db.User.create({
       name: req.body.name,
       sub:req.body.sub,
-
+      
     }).then(function (dbUser) {
+      dbUser.plants = []
       res.json(dbUser);
     });
   } else {
-    res.json(dbUser);
+    db.Plant.findAll({where: {UserId: dbUser.id}}).then(plants=>{
+      console.log("PLANTS HERE", plants, plants.map(p=>p.dataValues))
+      dbUser.plants = plants.map(p=>p.dataValues)
+      res.json(dbUser)
+    })
+ 
   }
   })
 })

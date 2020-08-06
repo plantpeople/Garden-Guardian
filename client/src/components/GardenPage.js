@@ -10,7 +10,7 @@ const GardenPage = (props) => {
   const getWeather = () => {
     console.log("getWeather called");
     API.getWeather(53202).then((response) => {
-      console.log("weather is:",response.data);
+      console.log("weather is:", response.data);
       setRainDays(response.data);
       setWeatherLoaded(true);
     }).catch(console.log);
@@ -25,7 +25,9 @@ const GardenPage = (props) => {
       days={plant.waterDays}
       key={plant.name}
       name={plant.name}
-      
+      button1={{ name: "Save Plant", handler: () => console.log(plant, true) }}
+      button2={{ name: "Like Plant", handler: () => console.log(plant, false) }}
+
     />
   ));
 

@@ -4,20 +4,6 @@ export default {
   queryApi: (query) => {
     return axios.get("plants/" + query);
   },
-  testPrivate: (token) => {
-    if (!token) {
-      alert("nope");
-      return;
-    }
-    return axios.get("testprivate", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  },
-  testPublic: () => {
-    return axios.get("testpublic");
-  },
   addUser: (user, token) => {
     return axios.post("api/user", user, {
       headers: {
@@ -37,6 +23,13 @@ export default {
   getWeather: (zip) => {
     return axios.get("/weather/" + zip);
   },
+  deletePlant: (plantId, token) => {
+    return axios.delete('plant/' + plantId,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }})
+  }
   // addPlant: (plant, token) => {
   //   return axios.put("api/add-plant", plant, {
   //     headers: {

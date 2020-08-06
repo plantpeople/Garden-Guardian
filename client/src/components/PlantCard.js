@@ -2,17 +2,8 @@ import React, { useState } from "react";
 import "../index.css";
 
 const PlantCard = (props) => {
-  const { garden, search, saved, handleClick, days } = props;
+  const { button1, button2, garden, search, liked, loggedIn, handleClick, days } = props;
   const [waterDays, setWaterDays] = useState(days);
-
-  let buttonName;
-  if (garden) {
-    buttonName = "Remove from My Garden";
-  } else if (search) {
-    buttonName = "Add to Saved";
-  } else if (saved) {
-    buttonName = "Remove from Saved";
-  }
 
   return (
     <div className="card-container">
@@ -26,7 +17,9 @@ const PlantCard = (props) => {
           <p>
             <strong> Name: {props.name} </strong>
           </p>
-          <button onClick={handleClick}>{buttonName}</button>
+          <button onClick={button1.handler}>{button1.name}</button>
+          <button onClick={button2.handler}>{button2.name}</button>
+
 
           { garden ?
             <div>
