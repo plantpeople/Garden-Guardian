@@ -9,7 +9,6 @@ const GardenPage = (props) => {
   const getWeather = () => {
     console.log("getWeather called");
     API.getWeather(53202).then((response) => {
-      console.log("weather is:",response.data);
       setRainDays(response.data);
       setWeatherLoaded(true);
     });
@@ -31,9 +30,19 @@ const GardenPage = (props) => {
     <div>
       <div className="my-garden">
         <div className="plants">{plantCards}</div>
+        {/* Create a Calendar w/ water data from all plants in My Garden */}
         {weatherLoaded ? (
-          <Calendar waterDays={plantsArray[0].waterDays} rainDays={rainDays} />
+          <Calendar
+            waterDays={plantsArray[0].waterDays}
+            plantsArray={plantsArray}
+            rainDays={rainDays}
+          />
         ) : null}
+
+        {/* Create a Calendar w/ water data from the first plant in plantsArray */}
+        {/* {weatherLoaded ? (
+          <Calendar waterDays={plantsArray[0].waterDays} rainDays={rainDays} />
+        ) : null} */}
       </div>
     </div>
   );
