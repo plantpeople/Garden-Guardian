@@ -19,7 +19,7 @@ const PlantCard = (props) => {
       <div className="card">
         <div className="img-container">
           {/* TODO: Figure out a good way to resize images to fit card */}
-          <img name={props.name} src={props.imageUrl} alt="plant" />
+          <img name={props.name} src={props.image} alt="plant" />
         </div>
 
         <div className="content">
@@ -27,7 +27,10 @@ const PlantCard = (props) => {
             <strong> Name: {props.name} </strong>
           </p>
           <button onClick={handleClick}>{buttonName}</button>
-          <div>
+
+          { garden ?
+            <div>
+          
             <span>Water this</span>
             <select
               value={waterDays}
@@ -46,6 +49,7 @@ const PlantCard = (props) => {
             </select>
             <span>times per week</span>
           </div>
+          : null}
 
                      {/* <strong> Name: </strong> {props.name}
           </p>

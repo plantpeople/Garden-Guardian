@@ -21,19 +21,6 @@ router.route("/plants/:query").get(function (req, res) {
     });
 });
 
-router.route("/plants/:query").get(function (req, res) {
-  const query = req.params.query;
-  console.log(process.env.WEATHER_KEY);
-  axios
-    .get(
-      `https://trefle.io/api/v1/plants/search?token=${process.env.TREFLE_KEY}&q=${query}`
-    )
-    .then(function (response) {
-      console.log(response.data.data);
-      res.json(response.data.data);
-    });
-});
-
 router.route("/weather/:zip_code").get(function (req, res) {
   const zip = req.params.zip_code;
   axios
@@ -72,3 +59,4 @@ router.route("/weather/:zip_code").get(function (req, res) {
 });
 
 module.exports = router;
+// https://trefle.io//api/v1/plants/daucus-glochidiatus?token=noGOGxi-VCXlxbadxLiVQunEDFVKnGxmlrFJOJmOSjM

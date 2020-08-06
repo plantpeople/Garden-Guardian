@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import PlantCard from "./PlantCard";
 import Calendar from "./Calendar";
 import API from "../util/API";
@@ -13,10 +13,10 @@ const GardenPage = (props) => {
       console.log("weather is:",response.data);
       setRainDays(response.data);
       setWeatherLoaded(true);
-    });
+    }).catch(console.log);
   };
 
-  useEffect(getWeather, []);
+  useLayoutEffect(getWeather, []);
 
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
@@ -25,6 +25,7 @@ const GardenPage = (props) => {
       days={plant.waterDays}
       key={plant.name}
       name={plant.name}
+      
     />
   ));
 
