@@ -13,7 +13,6 @@ router.route("/plants/:query").get(function (req, res) {
       `https://trefle.io/api/v1/plants/search?token=${process.env.TREFLE_KEY}&q=${query}`
     )
     .then(function (response) {
-      console.log(response.data.data);
       res.json(response.data.data);
     })
     .catch((err) => {
@@ -32,7 +31,7 @@ router.route("/weather/:zip_code").get(function (req, res) {
     .then((response) => {
       const rainDays = [];
       response.data.daily.forEach((element) => {
-        console.log("weather is: ",element.weather[0].main);
+        // console.log("weather is: ",element.weather[0].main);
         if (element.weather[0].main === "Rain") {
           rainDays.push(true);
         } else {
