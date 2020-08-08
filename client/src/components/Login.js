@@ -32,7 +32,6 @@ const Login = (props) => {
       .then((dbUser) => {
         console.log("user added");
         props.onLogin(dbUser.data, token);
-        console.log(dbUser.data.plants);
       })
       .catch((err) => {
         console.log(err);

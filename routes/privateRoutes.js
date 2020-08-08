@@ -76,7 +76,10 @@ router.route("/api/add-plant").post(function (req, res) {
 router.route("/api/plant").put(function (req, res) {
   db.Plant.update(req.body, {
     where: { id: req.body.id },
-  }).then((dbPlant) => console.log(dbPlant));
+  }).then((dbPlant) => {
+    console.log("hello")
+    res.json(dbPlant)
+  });
 });
 
 //save plant = part of row

@@ -7,7 +7,6 @@ import "../index.css"
 class Search extends Component {
  constructor(props) {
    super(props)
-   console.log(props)
 
   this.state = {
     searchQuery: "",
@@ -16,7 +15,6 @@ class Search extends Component {
   }; 
 }
   handleSearch = () => {
-    console.log("mount");
     API.queryApi(this.state.searchQuery)
       .then((response) => {
         const resultsArray = response.data.map((e) => {
@@ -25,7 +23,6 @@ class Search extends Component {
             image: e.image_url
           }
         });
-        console.log(response);
         this.setState({ searchResults: resultsArray });
       })
       .catch((error) => console.log(error));
