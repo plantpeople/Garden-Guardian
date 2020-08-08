@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../util/API";
-import "../index.css"
+import "../index.css";
 
 const Login = (props) => {
   const {
@@ -22,17 +22,17 @@ const Login = (props) => {
   );
 
   async function addUser() {
-    const token = await getAccessTokenSilently();
+    // const token = await getAccessTokenSilently();
     var newUser = {
       name: user.name,
       sub: user.sub,
     };
-
+    const token = "";
     API.addUser(newUser, token)
       .then((dbUser) => {
         console.log("user added");
         props.onLogin(dbUser.data, token);
-        console.log(dbUser);
+        console.log(dbUser.data.plants);
       })
       .catch((err) => {
         console.log(err);
@@ -43,16 +43,18 @@ const Login = (props) => {
   return (
     <div className="login">
       <button
-      className="button-2"
+        className="button-2"
         onClick={() => {
           loginWithRedirect();
         }}
       >
         Login
       </button>
-      <button  className="button-2" onClick={logout}>Logout</button>
+      <button className="button-2" onClick={logout}>
+        Logout
+      </button>
       <button
-      className="button-2"
+        className="button-2"
         onClick={() => {
           console.log(user);
           console.log(isAuthenticated);
@@ -63,7 +65,6 @@ const Login = (props) => {
       {isAuthenticated && (
         <>
           <div>
-           
             <p className="username">{user.email}</p>
           </div>
         </>
