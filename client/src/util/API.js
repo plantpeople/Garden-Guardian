@@ -25,6 +25,9 @@ export default {
       },
     });
   },
+  updatePlant: (plant) => {
+    return axios.put("/api/plant", plant);
+  },
   // addPlant: (plant, token) => {
   //   return axios.put("api/add-plant", plant, {
   //     headers: {

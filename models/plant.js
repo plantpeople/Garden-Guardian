@@ -1,10 +1,10 @@
-
 module.exports = (sequelize, DataTypes) => {
   const Plant = sequelize.define("Plant", {
     name: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     notes: DataTypes.STRING,
     inGarden: DataTypes.BOOLEAN,
+    waterDays: DataTypes.INTEGER,
 
     // family: DataTypes.STRING,
     // trefleId: DataTypes.INTEGER,
@@ -24,6 +24,5 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Plant;
 };
-
 
 //don't need my garden model bc have boolean value & only one garden per user

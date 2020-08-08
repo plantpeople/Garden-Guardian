@@ -13,15 +13,11 @@ class App extends Component {
   state = {
     user: {
       name: "user 1",
-      plants: [
-        { name: "plant 1", inGarden: true, waterDays: 3 },
-        { name: "plant 2", inGarden: true, waterDays: 6 },
-        { name: "plant 3", inGarden: false, waterDays: 3 },
-      ],
+      plants: [],
     },
     userId: "",
     token: "",
-    plantsAdded: []
+    plantsAdded: [],
   };
 
   //need to make MyGarden model? component? both? myGarden = plantsAdded...?
@@ -38,36 +34,38 @@ class App extends Component {
   //   };
   // }
   savePlant(plant, inGarden) {
-
     var newPlant = {
       name: plant.name,
       imageUrl: plant.imageUrl,
       userId: this.state.userId,
-      inGarden: inGarden
+      inGarden: inGarden,
     };
     console.log(newPlant);
 
     // TODO: fix userId being undefined
 
-    API.addPlant(newPlant, this.state.token).then((dbPlant) => {
-      //need to show user that the plant has been 'added' to their garden
-      //incorporate catch method in case sthg wrong happens
-    }).catch(err => console.log(err));
+    API.addPlant(newPlant, this.state.token)
+      .then((dbPlant) => {
+        //need to show user that the plant has been 'added' to their garden
+        //incorporate catch method in case sthg wrong happens
+      })
+      .catch((err) => console.log(err));
     console.log("Clicking this button will add the plant to garden");
   }
 
   deletePlant(plantId) {
-    API.deletePlant(plantId, this.state.token).then((dbPlant) => {
-      //need to show user that the plant has been 'added' to their garden
-      //incorporate catch method in case sthg wrong happens
-    }).catch(err => console.log(err));
+    API.deletePlant(plantId, this.state.token)
+      .then((dbPlant) => {
+        //need to show user that the plant has been 'added' to their garden
+        //incorporate catch method in case sthg wrong happens
+      })
+      .catch((err) => console.log(err));
     console.log("Clicking this button will add the plant to garden");
   }
 
-
   onLogin(user, token) {
-    console.log(user.plants, 'plants should be here')
-    this.setState({ userId: user.id, token });
+    console.log(user.plants, "plants should be here");
+    this.setState({ userId: user.id, token, user: user });
     console.log(this.state.userId);
   }
 
@@ -76,20 +74,14 @@ class App extends Component {
       <div className="mainContent">
         <Login onLogin={this.onLogin.bind(this)} />
         <h1 className="logo">Garden Guardians</h1>
-        <Search className="search-container" savePlant={this.savePlant.bind(this)} />
-        <PlantCard
-          className="plant-container"
-          button1={{ name: 'name', handler: () => { } }}
-          button2={{ name: 'name', handler: () => { } }}
-          addToGarden={this.addToGarden}
-          name="onion"
-          imageUrl="https://bs.floristic.org/image/o/c6e885c91752dde563029b0a6d1448ecc4ca19ca"
+        <Search
+          className="search-container"
+          savePlant={this.savePlant.bind(this)}
         />
 
-
-
         <GardenPage
-          plantsArray={this.state.user.plants.filter((p) => p.inGarden)} />
+          plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+        />
         {/* <Title>My Garden</Title> */}
         {/* {this.state.plantsAdded.map(plantsAdded => (
           <PlantCard
@@ -99,7 +91,6 @@ class App extends Component {
           />
         )} */}
       </div>
-
     );
   }
 }
