@@ -9,25 +9,24 @@ const GardenPage = (props) => {
   let { plantsArray } = props;
   const getWeather = () => {
     console.log("getWeather called");
-    API.getWeather(53202).then((response) => {
-      setRainDays(response.data);
-      setWeatherLoaded(true);
-    }).catch(console.log);
+    API.getWeather(53202)
+      .then((response) => {
+        setRainDays(response.data);
+        setWeatherLoaded(true);
+      })
+      .catch(console.log);
   };
 
   // useLayoutEffect(getWeather, []);
 
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
+      plant={plant}
       garden={true}
       handleClick={() => console.log("button clicked")}
-      days={plant.waterDays}
-      key={plant.name}
-      name={plant.name}
-
+      key={plant.id}
       button1={{ name: "Save Plant", handler: () => console.log(plant, true) }}
       button2={{ name: "Like Plant", handler: () => console.log(plant, false) }}
-
     />
   ));
 

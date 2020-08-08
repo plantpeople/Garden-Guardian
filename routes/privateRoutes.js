@@ -73,6 +73,12 @@ router.route("/api/add-plant").post(function (req, res) {
   });
 });
 
+router.route("/api/plant").put(function (req, res) {
+  db.Plant.update(req.body, {
+    where: { id: req.body.id },
+  }).then((dbPlant) => console.log(dbPlant));
+});
+
 //save plant = part of row
 //will need put routes to make changes to garden, add notes -- consider this being changes to user (ex, notes added to user & displayed on garden 'view,' whatever we dexcide that is)
 

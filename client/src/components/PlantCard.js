@@ -1,8 +1,18 @@
 import React, { useState } from "react";
+import API from "../util/API";
 import "../index.css";
 
 const PlantCard = (props) => {
-  const { button1, button2, garden, search, liked, loggedIn, handleClick, days } = props;
+  const {
+    button1,
+    button2,
+    garden,
+    search,
+    liked,
+    loggedIn,
+    handleClick,
+    days,
+  } = props;
   const [waterDays, setWaterDays] = useState(days);
 
   return (
@@ -20,31 +30,32 @@ const PlantCard = (props) => {
           <button onClick={button1.handler}>{button1.name}</button>
           <button onClick={button2.handler}>{button2.name}</button>
 
-
-          { garden ?
+          {garden ? (
             <div>
-          
-            <span>Water this</span>
-            <select
-              value={waterDays}
-              onChange={(event) => {
-                setWaterDays(event.target.value);
-                // TODO update plant in database
-              }}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-            </select>
-            <span>times per week</span>
-          </div>
-          : null}
+              <span>Water this</span>
+              <select
+                value={waterDays}
+                onChange={(event) => {
+                  setWaterDays(event.target.value);
+                  // TODO update plant in database
+                  const updatedPlant = { ...props.plant };
+                  updatedPlant.waterDays = event.target.value;
+                  API.updatePlant(updatedPlant);
+                }}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+              <span>times per week</span>
+            </div>
+          ) : null}
 
-                     {/* <strong> Name: </strong> {props.name}
+          {/* <strong> Name: </strong> {props.name}
           </p>
           <button className="add-btn" onClick={() => props.addToGarden(props.name, props.imageUrl)}>
             Add to my garden
