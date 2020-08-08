@@ -13,11 +13,7 @@ class App extends Component {
   state = {
     user: {
       name: "user 1",
-      plants: [
-        { name: "plant 1", inGarden: true, waterDays: 3 },
-        { name: "plant 2", inGarden: true, waterDays: 6 },
-        { name: "plant 3", inGarden: false, waterDays: 3 },
-      ],
+      plants: [],
     },
     userId: "",
     token: "",
@@ -69,7 +65,7 @@ class App extends Component {
 
   onLogin(user, token) {
     console.log(user.plants, "plants should be here");
-    this.setState({ userId: user.id, token });
+    this.setState({ userId: user.id, token, user: user });
     console.log(this.state.userId);
   }
 
@@ -82,15 +78,6 @@ class App extends Component {
           className="search-container"
           savePlant={this.savePlant.bind(this)}
         />
-        {/* <PlantCard
-          className="plant-container"
-          button1={{ name: 'name', handler: () => { } }}
-          button2={{ name: 'name', handler: () => { } }}
-          addToGarden={this.addToGarden}
-          name="onion"
-          imageUrl="https://bs.floristic.org/image/o/c6e885c91752dde563029b0a6d1448ecc4ca19ca"
-        />
- */}
 
         <GardenPage
           plantsArray={this.state.user.plants.filter((p) => p.inGarden)}

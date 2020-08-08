@@ -9,7 +9,6 @@ const GardenPage = (props) => {
   let { plantsArray } = props;
   const getWeather = () => {
     console.log("getWeather called");
-
     API.getWeather(53202)
       .then((response) => {
         setRainDays(response.data);
@@ -22,11 +21,10 @@ const GardenPage = (props) => {
 
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
+      plant={plant}
       garden={true}
       handleClick={() => console.log("button clicked")}
-      days={plant.waterDays}
-      key={plant.name}
-      name={plant.name}
+      key={plant.id}
       button1={{ name: "Save Plant", handler: () => console.log(plant, true) }}
       button2={{ name: "Like Plant", handler: () => console.log(plant, false) }}
     />
@@ -38,11 +36,7 @@ const GardenPage = (props) => {
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
         {weatherLoaded ? (
-          <Calendar
-            waterDays={plantsArray[0].waterDays}
-            plantsArray={plantsArray}
-            rainDays={rainDays}
-          />
+          <Calendar plantsArray={plantsArray} rainDays={rainDays} />
         ) : null}
       </div>
     </div>

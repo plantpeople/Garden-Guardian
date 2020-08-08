@@ -68,9 +68,16 @@ router.route("/api/add-plant").post(function (req, res) {
     image: req.body.image,
     UserId: req.body.userId,
     inGarden: req.body.inGarden,
+    waterDays: 3,
   }).then(function (dbPlant) {
     res.json(dbPlant);
   });
+});
+
+router.route("/api/plant").put(function (req, res) {
+  db.Plant.update(req.body, {
+    where: { id: req.body.id },
+  }).then((dbPlant) => console.log(dbPlant));
 });
 
 //save plant = part of row
