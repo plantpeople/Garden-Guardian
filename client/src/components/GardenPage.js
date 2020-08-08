@@ -10,14 +10,15 @@ const GardenPage = (props) => {
   const getWeather = () => {
     console.log("getWeather called");
 
-    API.getWeather(53202).then((response) => {
-      setRainDays(response.data);
-      setWeatherLoaded(true);
-    }).catch(console.log);
-
+    API.getWeather(53202)
+      .then((response) => {
+        setRainDays(response.data);
+        setWeatherLoaded(true);
+      })
+      .catch(console.log);
   };
 
-  // useLayoutEffect(getWeather, []);
+  useLayoutEffect(getWeather, []);
 
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
@@ -32,7 +33,7 @@ const GardenPage = (props) => {
   ));
 
   return (
-    <div  className="myGarden">
+    <div className="myGarden">
       <div>
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
