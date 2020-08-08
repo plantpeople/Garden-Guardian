@@ -17,7 +17,7 @@ const GardenPage = (props) => {
       .catch(console.log);
   };
 
-  // useLayoutEffect(getWeather, []);
+  useLayoutEffect(getWeather, []);
 
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
@@ -36,11 +36,7 @@ const GardenPage = (props) => {
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
         {weatherLoaded ? (
-          <Calendar
-            waterDays={plantsArray[0].waterDays}
-            plantsArray={plantsArray}
-            rainDays={rainDays}
-          />
+          <Calendar plantsArray={plantsArray} rainDays={rainDays} />
         ) : null}
       </div>
     </div>

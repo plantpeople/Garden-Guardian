@@ -40,7 +40,7 @@ const PlantCard = (props) => {
                 value={waterDays}
                 onChange={(event) => {
                   setWaterDays(event.target.value);
-                  // TODO update plant in database
+                  // Update the plant in the database when water days dropdown is changed
                   const updatedPlant = { ...props.plant };
                   updatedPlant.waterDays = event.target.value;
                   API.updatePlant(updatedPlant);
