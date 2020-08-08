@@ -4,9 +4,10 @@ import Calendar from "./Calendar";
 import API from "../util/API";
 import "../index.css";
 const GardenPage = (props) => {
+  const [plantsArray, setPlantsArray] = useState(props.plantsArray);
   const [weatherLoaded, setWeatherLoaded] = useState(false);
   const [rainDays, setRainDays] = useState([]);
-  let { plantsArray } = props;
+  console.log("plants array", props.plantsArray, plantsArray);
   const getWeather = () => {
     console.log("getWeather called");
     API.getWeather(53202)
@@ -19,14 +20,25 @@ const GardenPage = (props) => {
 
   useLayoutEffect(getWeather, []);
 
+  const deletePlant = (plant) => {
+    API.deletePlant(plant.id).then((res) => {
+      setPlantsArray(plantsArray.filter((e) => e.id !== plant.id));
+    });
+  };
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
       plant={plant}
       garden={true}
       handleClick={() => console.log("button clicked")}
       key={plant.id}
-      button1={{ name: "Save Plant", handler: () => console.log(plant, true) }}
-      button2={{ name: "Like Plant", handler: () => console.log(plant, false) }}
+      button1={{
+        name: "Delete Plant",
+        handler: () => deletePlant(plant),
+      }}
+      button2={{
+        name: "Move to Likes",
+        handler: () => console.log(plant, false),
+      }}
     />
   ));
 
@@ -35,9 +47,9 @@ const GardenPage = (props) => {
       <div>
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
-        {weatherLoaded ? (
+        {weatherLoaded && (
           <Calendar plantsArray={plantsArray} rainDays={rainDays} />
-        ) : null}
+        )}
       </div>
     </div>
   );

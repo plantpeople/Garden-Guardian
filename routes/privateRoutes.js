@@ -34,9 +34,8 @@ router.route("/api/user").post(function (req, res) {
         name: req.body.name,
         sub: req.body.sub,
       }).then(function (dbUser) {
-        dbUser.plants = [];
-        // res.json(dbUser);
-        res.json("hello !dbUser");
+        dbUser.dataValues.plants = [];
+        res.json(dbUser);
       });
     } else {
       console.log("db user exists");

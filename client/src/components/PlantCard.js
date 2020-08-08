@@ -14,8 +14,6 @@ const PlantCard = (props) => {
     days,
   } = props;
 
-  console.log(props);
-
   const [waterDays, setWaterDays] = useState(props.plant.waterDays);
 
   return (

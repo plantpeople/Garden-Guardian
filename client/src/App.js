@@ -10,15 +10,7 @@ import API from "./util/API";
 // let gardenListArray = []
 
 class App extends Component {
-  state = {
-    user: {
-      name: "user 1",
-      plants: [],
-    },
-    userId: "",
-    token: "",
-    plantsAdded: [],
-  };
+  state = {};
 
   //need to make MyGarden model? component? both? myGarden = plantsAdded...?
   //need to make call to backend
@@ -79,9 +71,11 @@ class App extends Component {
           savePlant={this.savePlant.bind(this)}
         />
 
-        <GardenPage
-          plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
-        />
+        {this.state.user && (
+          <GardenPage
+            plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+          />
+        )}
         {/* <Title>My Garden</Title> */}
         {/* {this.state.plantsAdded.map(plantsAdded => (
           <PlantCard
