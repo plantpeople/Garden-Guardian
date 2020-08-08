@@ -11,7 +11,8 @@ const plantCards = plants.map((plant, index) => (
   <PlantCard
   className="resultCard"
     garden={false}
-    handleClick={() => savePlant(plant)}
+    button1={{name: "Save Plant", handler: ()=>savePlant(plant, true)}}
+    button2={{name: "Like Plant", handler: ()=>savePlant(plant, false)}}
     key={index}
     name={plant.name}
     image={plant.image}
