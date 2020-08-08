@@ -1,24 +1,24 @@
 body {
   background-image: url(background-4.jpg);
+  background-repeat: no-repeat;
   margin: auto;
 }
 
-.mainContent{
-  font-family: 'Antic Slab', serif;
-  background-color:  lightgrey;
-  margin:  auto;
+.mainContent {
+  font-family: "Antic Slab", serif;
+  background-color: lightgrey;
+  margin: auto;
   width: 85%;
   border: #cccccc 1px;
   opacity: 90%;
   border: solid 1px #cccccc;
 }
 
-.login{
+.login {
   margin: auto;
   display: flex;
   margin-bottom: 20%;
 }
-
 
 .username {
   margin-left: 40%;
@@ -26,9 +26,9 @@ body {
 }
 
 .button-2 {
-  font-family: 'Antic Slab', serif;
+  font-family: "Antic Slab", serif;
   font-size: 18px;
-  background-color:#558b2f;
+  background-color: #558b2f;
   color: white;
   width: 15%;
   height: 50px;
@@ -42,7 +42,6 @@ body {
   font-size: 4em;
   text-align: center;
   margin-bottom: 15%;
- 
 }
 
 .search-container {
@@ -51,7 +50,7 @@ body {
   margin-bottom: 10%;
 }
 
-.search-bar{
+.search-bar {
   width: 80%;
   height: 2em;
   border-radius: 4px;
@@ -66,19 +65,15 @@ body {
   padding: 1%;
   text-align: center;
   border-radius: 4px;
-
 }
 
 .card-container {
-  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  
 }
 
 .card {
-  
   background: whitesmoke;
   border: solid #558b2f 1px;
   max-height: 100%;
@@ -92,7 +87,6 @@ body {
   padding: 2%;
 }
 .card > .img-container {
-
   height: 200px;
   overflow: hidden;
   text-align: center;
@@ -102,10 +96,10 @@ body {
 }
 .day {
   background: whitesmoke;
-  
+
   flex-flow: row nowrap;
   margin: 10%;
-  
+
   padding: 5px 10px 25px 10px;
   text-align: center;
   min-height: 70%;
@@ -126,14 +120,12 @@ body {
 
   width: 80%;
   margin: 10%;
-
 }
 
 .results {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
 }
 
 .plants {
