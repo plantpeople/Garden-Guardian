@@ -3,17 +3,16 @@ import Day from "./Day";
 import API from "../util/API";
 
 const Calendar = (props) => {
-  const rainDays = props.rainDays;
-
   var day = 0;
   var daysArray = [];
   var shouldWater = false;
 
-  // Grab plantsArray from props
-  var plantsArray = props.plantsArray;
-
   // Create a new array to hold water data for each plant
   var plantWaterArray = [];
+
+  // Grab array of plants in My Garden and days it will rain this week from props
+  const rainDays = props.rainDays;
+  var plantsArray = props.plantsArray;
 
   // Loop through plantsArray and get water data for each plant for each day
   plantsArray.forEach((plant) => {
@@ -26,27 +25,27 @@ const Calendar = (props) => {
 
     // Loop through 8 days
     while (day < 8) {
+      // Reset shouldWater indicator
+      shouldWater = false;
+
+      // Decrement # of days until plant needs to be watered
+      daysUntil--;
+
       // Grab whether or not it will rain on this day
       let willRain = rainDays[day];
 
       // If it will rain on this day...
       if (willRain) {
-        // Reset the # of days there are until the plant needs to be watered
+        // Reset # of days until the plant needs to be watered
         daysUntil = plant.waterDays;
       }
 
       // If there are 0 days left until plant needs to be watered...
       if (daysUntil === 0) {
-        // Indicate that the plant should be watered...
+        // Indicate that the plant should be watered
         shouldWater = true;
 
-        // ...unless it will rain tomorrow, then...
-        if (rainDays[day + 1]) {
-          // ...indicate that the plant should not be watered.
-          shouldWater = false;
-        }
-
-        // Reset the # of days there are until the plant needs to be watered
+        // Reset # of days until plant needs to be watered
         daysUntil = plant.waterDays;
       }
 
@@ -55,6 +54,8 @@ const Calendar = (props) => {
 
       // Increment day to continue on in the while loop
       day++;
+
+      console.log(plant.name, daysUntil);
     }
 
     // Create an object to hold plant data
@@ -65,6 +66,9 @@ const Calendar = (props) => {
 
     // Push plant data object to plantWaterArray
     plantWaterArray.push(plantData);
+
+    // Reset day counter
+    day = 0;
   });
 
   // Reset day counter
@@ -82,6 +86,7 @@ const Calendar = (props) => {
       />
     );
 
+    // Increment day to continue on in the while loop
     day++;
   }
 

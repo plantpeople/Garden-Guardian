@@ -4,10 +4,11 @@ const Day = (props) => {
   // Create array to hold JSX partials for plants
   var plantItems = [];
 
-  // Loop through array to create JSX partial for each plant
+  // Loop through array from props to create JSX partial for each plant
   props.plantWaterArray.forEach((plant) => {
     plantItems.push(
-      <div>
+      // Make sure each partial has a unique key to satisfy React's reqs
+      <div key={plant.name}>
         <p>Name: {plant.name}</p>
         <p>Water today? {plant.shouldWaterArray[props.day] ? "yes" : "no"}</p>
       </div>
