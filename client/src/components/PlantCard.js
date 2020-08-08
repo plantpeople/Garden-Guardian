@@ -13,7 +13,10 @@ const PlantCard = (props) => {
     handleClick,
     days,
   } = props;
-  const [waterDays, setWaterDays] = useState(days);
+
+  console.log(props);
+
+  const [waterDays, setWaterDays] = useState(props.plant.waterDays);
 
   return (
     <div className="card-container">

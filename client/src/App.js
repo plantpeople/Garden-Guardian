@@ -78,14 +78,6 @@ class App extends Component {
           className="search-container"
           savePlant={this.savePlant.bind(this)}
         />
-        <PlantCard
-          className="plant-container"
-          button1={{ name: "name", handler: () => {} }}
-          button2={{ name: "name", handler: () => {} }}
-          addToGarden={this.addToGarden}
-          name="onion"
-          imageUrl="https://bs.floristic.org/image/o/c6e885c91752dde563029b0a6d1448ecc4ca19ca"
-        />
 
         <GardenPage
           plantsArray={this.state.user.plants.filter((p) => p.inGarden)}

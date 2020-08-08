@@ -68,6 +68,7 @@ router.route("/api/add-plant").post(function (req, res) {
     image: req.body.image,
     UserId: req.body.userId,
     inGarden: req.body.inGarden,
+    waterDays: 3,
   }).then(function (dbPlant) {
     res.json(dbPlant);
   });
