@@ -52,15 +52,7 @@ const Login = (props) => {
       <button className="button-2" onClick={logout}>
         Logout
       </button>
-      <button
-        className="button-2"
-        onClick={() => {
-          console.log(user);
-          console.log(isAuthenticated);
-        }}
-      >
-        Log user
-      </button>
+
       {isAuthenticated && (
         <>
           <div>

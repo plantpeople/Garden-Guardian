@@ -11,7 +11,9 @@ import API from "./util/API";
 // let gardenListArray = []
 
 class App extends Component {
-  state = {};
+  state = {
+    showGarden: false,
+  };
 
   //need to make MyGarden model? component? both? myGarden = plantsAdded...?
   //need to make call to backend
@@ -72,6 +74,14 @@ class App extends Component {
   render() {
     return (
       <div className="mainContent">
+        <button
+          className="button-2"
+          onClick={() => {
+            this.setState({ inGarden: !this.state.inGarden });
+          }}
+        >
+          Change to {!this.state.inGarden ? "garden page" : "likes page"}
+        </button>
         <Login onLogin={this.onLogin.bind(this)} />
         <h1 className="logo">Garden Guardians</h1>
         <Search
@@ -81,15 +91,17 @@ class App extends Component {
 
         {this.state.user && (
           <div>
-            <GardenPage
-              plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
-              movePlant={this.movePlant.bind(this)}
-            />
-
-            <LikedPage
-              plantsArray={this.state.plants.filter((p) => !p.inGarden)}
-              movePlant={this.movePlant.bind(this)}
-            />
+            {this.state.inGarden ? (
+              <GardenPage
+                plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+                movePlant={this.movePlant.bind(this)}
+              />
+            ) : (
+              <LikedPage
+                plantsArray={this.state.plants.filter((p) => !p.inGarden)}
+                movePlant={this.movePlant.bind(this)}
+              />
+            )}
           </div>
         )}
         {/* <Title>My Garden</Title> */}
