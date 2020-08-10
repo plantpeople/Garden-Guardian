@@ -54,8 +54,6 @@ const Calendar = (props) => {
 
       // Increment day to continue on in the while loop
       day++;
-
-      console.log(plant.name, daysUntil);
     }
 
     // Create an object to hold plant data

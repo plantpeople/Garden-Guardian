@@ -23,11 +23,6 @@ const GardenPage = (props) => {
 
   useLayoutEffect(getWeather, []);
 
-  const deletePlant = (plant) => {
-    API.deletePlant(plant.id).then((res) => {
-      setPlantsArray(plantsArray.filter((e) => e.id !== plant.id));
-    });
-  };
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
       plant={plant}
@@ -36,7 +31,7 @@ const GardenPage = (props) => {
       key={plant.id}
       button1={{
         name: "Delete Plant",
-        handler: () => deletePlant(plant),
+        handler: () => props.deletePlant(plant),
       }}
       button2={{
         name: "Move to Likes",
