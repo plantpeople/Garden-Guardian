@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Plant = sequelize.define("Plant", {
     name: DataTypes.STRING,
-    imageUrl: DataTypes.STRING,
+    image: DataTypes.STRING,
     notes: DataTypes.STRING,
     inGarden: DataTypes.BOOLEAN,
     waterDays: DataTypes.INTEGER,

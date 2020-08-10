@@ -55,14 +55,16 @@ class App extends Component {
     });
   }
 
-  deletePlant(plantId) {
-    API.deletePlant(plantId, this.state.token)
+  deletePlant(plant) {
+    API.deletePlant(plant.id)
       .then((dbPlant) => {
-        //need to show user that the plant has been 'added' to their garden
-        //incorporate catch method in case sthg wrong happens
+        console.log("Delete plant .then");
+        this.setState({
+          plants: this.state.plants.filter((e) => e.id !== plant.id),
+        });
       })
       .catch((err) => console.log(err));
-    console.log("Clicking this button will add the plant to garden");
+    console.log("Delete plant");
   }
 
   onLogin(user, token) {
@@ -84,11 +86,13 @@ class App extends Component {
             <GardenPage
               plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
               movePlant={this.movePlant.bind(this)}
+              deletePlant={this.deletePlant.bind(this)}
             />
 
             <LikedPage
               plantsArray={this.state.plants.filter((p) => !p.inGarden)}
               movePlant={this.movePlant.bind(this)}
+              deletePlant={this.deletePlant.bind(this)}
             />
           </div>
         )}
