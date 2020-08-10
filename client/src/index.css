@@ -47,7 +47,7 @@ body {
 .logo-1 {
   font-size: 3em;
   text-align: center;
-  margin-bottom: 15%;
+  margin-bottom: 10%;
 }
 
 .search-container {
@@ -85,7 +85,7 @@ body {
   max-height: 100%;
   border-radius: 2px;
   height: auto;
-  margin: 1rem;
+  margin: 5%;
   position: relative;
   width: 200px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
@@ -104,7 +104,7 @@ body {
   background: whitesmoke;
 
   flex-flow: row nowrap;
-  margin: 10%;
+  margin: 5%;
 
   padding: 5px 10px 25px 10px;
   text-align: center;
