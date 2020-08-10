@@ -4,16 +4,12 @@ import Calendar from "./Calendar";
 import API from "../util/API";
 import "../index.css";
 
-
 const LikedPage = (props) => {
-  console.log(props.plantsArray)
-    const [plantsArray, setPlantsArray] = useState(props.plantsArray);
-    useEffect(()=>{
-      setPlantsArray(props.plantsArray)
-   
-    })
-
-
+  console.log(props.plantsArray);
+  const [plantsArray, setPlantsArray] = useState(props.plantsArray);
+  useEffect(() => {
+    setPlantsArray(props.plantsArray);
+  });
 
   const deletePlant = (plant) => {
     API.deletePlant(plant.id).then((res) => {
@@ -39,12 +35,12 @@ const LikedPage = (props) => {
 
   return (
     <div className="myGarden">
+      <h1>likes page</h1>
       <div>
         <div className="plants">{plantCards}</div>
-      
       </div>
     </div>
-  ); 
-}
+  );
+};
 
 export default LikedPage;

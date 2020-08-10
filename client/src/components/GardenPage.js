@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import PlantCard from "./PlantCard";
 import Calendar from "./Calendar";
 import API from "../util/API";
@@ -17,6 +17,9 @@ const GardenPage = (props) => {
       })
       .catch(console.log);
   };
+  useEffect(() => {
+    setPlantsArray(props.plantsArray);
+  });
 
   useLayoutEffect(getWeather, []);
 
@@ -37,13 +40,14 @@ const GardenPage = (props) => {
       }}
       button2={{
         name: "Move to Likes",
-        handler: () => console.log(plant, false),
+        handler: () => props.movePlant(plant),
       }}
     />
   ));
 
   return (
     <div className="myGarden">
+      <h1>garden page</h1>
       <div>
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}

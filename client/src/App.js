@@ -47,13 +47,12 @@ class App extends Component {
   }
 
   movePlant(plant) {
-    plant.inGarden = !plant.inGarden
-    
-    API.updatePlant(plant).then(response=>{
-      console.log(this.state.plants)
-      this.setState({plants: this.state.plants})
-      
-    })
+    plant.inGarden = !plant.inGarden;
+
+    API.updatePlant(plant).then((response) => {
+      console.log(this.state.plants);
+      this.setState({ plants: this.state.plants });
+    });
   }
 
   deletePlant(plantId) {
@@ -67,8 +66,7 @@ class App extends Component {
   }
 
   onLogin(user, token) {
-    this.setState({ userId: user.id, token, user: user, plants: user.plants});
-
+    this.setState({ userId: user.id, token, user: user, plants: user.plants });
   }
 
   render() {
@@ -82,17 +80,17 @@ class App extends Component {
         />
 
         {this.state.user && (
-     <div>
+          <div>
             <GardenPage
-            plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
-          />
+              plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+              movePlant={this.movePlant.bind(this)}
+            />
 
             <LikedPage
-            plantsArray={this.state.plants.filter((p) => !p.inGarden)}
-            movePlant = {this.movePlant.bind(this)}
-          />
-     </div>
-        
+              plantsArray={this.state.plants.filter((p) => !p.inGarden)}
+              movePlant={this.movePlant.bind(this)}
+            />
+          </div>
         )}
         {/* <Title>My Garden</Title> */}
         {/* {this.state.plantsAdded.map(plantsAdded => (
