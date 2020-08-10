@@ -1,6 +1,6 @@
-/* body {
-  background-image: url(background-4.jpg);
-  background-repeat: no-repeat;
+body {
+  /* background-image: url(background-4.jpg);
+  background-repeat: no-repeat; */
   margin: auto;
 }
 
@@ -133,4 +133,4 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-} */
+}
