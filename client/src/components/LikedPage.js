@@ -35,7 +35,7 @@ const LikedPage = (props) => {
 
   return (
     <div className="myGarden">
-      <h1>likes page</h1>
+      <h1 className="logo-1">Save for Later</h1>
       <div>
         <div className="plants">{plantCards}</div>
       </div>

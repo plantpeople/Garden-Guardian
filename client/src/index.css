@@ -1,7 +1,8 @@
 body {
   background-image: url(background-4.jpg);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   margin: auto;
+
 }
 
 .mainContent {
@@ -38,7 +39,13 @@ body {
 }
 
 .logo {
-  font-size: 4em;
+  font-size: 5em;
+  text-align: center;
+  margin-bottom: 15%;
+}
+
+.logo-1 {
+  font-size: 3em;
   text-align: center;
   margin-bottom: 15%;
 }
@@ -46,7 +53,7 @@ body {
 .search-container {
   margin: auto;
   width: 70%;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 
 .search-bar {

@@ -47,7 +47,7 @@ const GardenPage = (props) => {
 
   return (
     <div className="myGarden">
-      <h1>garden page</h1>
+      <h1 className="logo-1">My Garden</h1>
       <div>
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
