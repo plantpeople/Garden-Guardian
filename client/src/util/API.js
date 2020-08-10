@@ -19,7 +19,7 @@ export default {
     return axios.get("/weather/" + zip);
   },
   deletePlant: (plantId, token) => {
-    return axios.delete("plant/" + plantId, {
+    return axios.delete("/api/plant/" + plantId, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

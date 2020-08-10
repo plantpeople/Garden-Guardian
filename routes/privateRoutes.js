@@ -34,9 +34,8 @@ router.route("/api/user").post(function (req, res) {
         name: req.body.name,
         sub: req.body.sub,
       }).then(function (dbUser) {
-        dbUser.plants = [];
-        // res.json(dbUser);
-        res.json("hello !dbUser");
+        dbUser.dataValues.plants = [];
+        res.json(dbUser);
       });
     } else {
       console.log("db user exists");
@@ -77,7 +76,10 @@ router.route("/api/add-plant").post(function (req, res) {
 router.route("/api/plant").put(function (req, res) {
   db.Plant.update(req.body, {
     where: { id: req.body.id },
-  }).then((dbPlant) => console.log(dbPlant));
+  }).then((dbPlant) => {
+    console.log("hello")
+    res.json(dbPlant)
+  });
 });
 
 //save plant = part of row

@@ -14,8 +14,6 @@ const PlantCard = (props) => {
     days,
   } = props;
 
-  console.log(props);
-
   const [waterDays, setWaterDays] = useState(props.plant.waterDays);
 
   return (
@@ -23,12 +21,12 @@ const PlantCard = (props) => {
       <div className="card">
         <div className="img-container">
           {/* TODO: Figure out a good way to resize images to fit card */}
-          <img name={props.name} src={props.image} alt="plant" />
+          <img name={props.name} src={props.plant.image} alt="plant" />
         </div>
 
         <div className="content">
           <p>
-            <strong> Name: {props.name} </strong>
+            <strong> Name: {props.plant.name} </strong>
           </p>
           <button onClick={button1.handler}>{button1.name}</button>
           <button onClick={button2.handler}>{button2.name}</button>

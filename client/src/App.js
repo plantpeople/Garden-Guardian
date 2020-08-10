@@ -5,20 +5,13 @@ import Search from "./components/Search";
 import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
 import GardenPage from "./components/GardenPage";
+import LikedPage from "./components/LikedPage";
 import API from "./util/API";
 
 // let gardenListArray = []
 
 class App extends Component {
-  state = {
-    user: {
-      name: "user 1",
-      plants: [],
-    },
-    userId: "",
-    token: "",
-    plantsAdded: [],
-  };
+  state = {};
 
   //need to make MyGarden model? component? both? myGarden = plantsAdded...?
   //need to make call to backend
@@ -36,7 +29,7 @@ class App extends Component {
   savePlant(plant, inGarden) {
     var newPlant = {
       name: plant.name,
-      imageUrl: plant.imageUrl,
+      image: plant.image,
       userId: this.state.userId,
       inGarden: inGarden,
     };
@@ -53,6 +46,15 @@ class App extends Component {
     console.log("Clicking this button will add the plant to garden");
   }
 
+  movePlant(plant) {
+    plant.inGarden = !plant.inGarden;
+
+    API.updatePlant(plant).then((response) => {
+      console.log(this.state.plants);
+      this.setState({ plants: this.state.plants });
+    });
+  }
+
   deletePlant(plantId) {
     API.deletePlant(plantId, this.state.token)
       .then((dbPlant) => {
@@ -64,9 +66,7 @@ class App extends Component {
   }
 
   onLogin(user, token) {
-    console.log(user.plants, "plants should be here");
-    this.setState({ userId: user.id, token, user: user });
-    console.log(this.state.userId);
+    this.setState({ userId: user.id, token, user: user, plants: user.plants });
   }
 
   render() {
@@ -79,9 +79,19 @@ class App extends Component {
           savePlant={this.savePlant.bind(this)}
         />
 
-        <GardenPage
-          plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
-        />
+        {this.state.user && (
+          <div>
+            <GardenPage
+              plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+              movePlant={this.movePlant.bind(this)}
+            />
+
+            <LikedPage
+              plantsArray={this.state.plants.filter((p) => !p.inGarden)}
+              movePlant={this.movePlant.bind(this)}
+            />
+          </div>
+        )}
         {/* <Title>My Garden</Title> */}
         {/* {this.state.plantsAdded.map(plantsAdded => (
           <PlantCard
