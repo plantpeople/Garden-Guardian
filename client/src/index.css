@@ -7,11 +7,10 @@ body {
 .mainContent {
   font-family: "Antic Slab", serif;
   background-color: lightgrey;
+  border: solid 1px #cccccc;
+  border: #cccccc 1px;
   margin: auto;
   width: 85%;
-  border: #cccccc 1px;
-  opacity: 90% !important;
-  border: solid 1px #cccccc;
 }
 
 .login {
