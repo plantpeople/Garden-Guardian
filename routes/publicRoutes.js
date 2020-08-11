@@ -29,10 +29,12 @@ router.route("/weather/:zip_code").get(function (req, res) {
       }`
     )
     .then((response) => {
-      console.log(response.data);
       const weatherArray = [];
       response.data.daily.forEach((element) => {
-        weatherArray.push(element.weather[0].main);
+        weatherArray.push({
+          weather: element.weather[0].main,
+          date: element.dt,
+        });
       });
       res.json(weatherArray);
     });

@@ -9,8 +9,6 @@ const GardenPage = (props) => {
   const [weatherLoaded, setWeatherLoaded] = useState(false);
   const [weatherArray, setweatherArray] = useState([]);
 
-  console.log("plants array", props.plantsArray, plantsArray);
-
   const getWeather = () => {
     console.log("getWeather called");
     API.getWeather(53202)
@@ -26,13 +24,13 @@ const GardenPage = (props) => {
 
   var precipArray = [];
 
-weatherArray.forEach( day => {
-        if (day === "Rain") {
-          precipArray.push(true);
-        } else {
-          precipArray.push(false);
-        }
-});
+  weatherArray.forEach((day) => {
+    if (day.weather === "Rain") {
+      precipArray.push(true);
+    } else {
+      precipArray.push(false);
+    }
+  });
 
   useLayoutEffect(getWeather, []);
 
@@ -60,7 +58,11 @@ weatherArray.forEach( day => {
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
         {weatherLoaded && (
-          <Calendar plantsArray={plantsArray} weatherArray={weatherArray} precipArray={precipArray}/>
+          <Calendar
+            plantsArray={plantsArray}
+            weatherArray={weatherArray}
+            precipArray={precipArray}
+          />
         )}
       </div>
     </div>
