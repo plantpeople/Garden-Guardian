@@ -4,7 +4,9 @@ body {
   margin: auto;
 
 }
-
+.water {
+  width: 20px;
+}
 .mainContent {
   font-family: "Antic Slab", serif;
   background-color: lightgrey;
