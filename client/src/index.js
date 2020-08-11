@@ -13,6 +13,7 @@ ReactDOM.render(
       clientId={config.clientId}
       redirectUri={window.location.origin}
       audience={"https://quickstarts/api"}
+      cacheLocation="localstorage"
     >
       <App />
     </Auth0Provider>
