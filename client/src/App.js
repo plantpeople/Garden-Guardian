@@ -74,15 +74,15 @@ class App extends Component {
   render() {
     return (
       <div className="mainContent">
-        <button
+      <div className="login">  <button
           className="button-2"
           onClick={() => {
             this.setState({ inGarden: !this.state.inGarden });
           }}
         >
-          Change to {!this.state.inGarden ? "garden page" : "likes page"}
+          Change to {!this.state.inGarden ? "Garden Page" : "Likes Page"}
         </button>
-        <Login onLogin={this.onLogin.bind(this)} />
+        <Login onLogin={this.onLogin.bind(this)} /></div>
         <h1 className="logo">Garden Guardians</h1>
         <Search
           className="search-container"
