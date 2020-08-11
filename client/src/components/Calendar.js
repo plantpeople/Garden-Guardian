@@ -11,9 +11,11 @@ const Calendar = (props) => {
   var plantWaterArray = [];
 
   // Grab array of plants in My Garden and days it will rain this week from props
-  const rainDays = props.rainDays;
+  const precipArray = props.precipArray;
+  console.log(props.precipArray);
   var plantsArray = props.plantsArray;
-
+  var weatherArray = props.weatherArray;
+  console.log(weatherArray);
   // Loop through plantsArray and get water data for each plant for each day
   plantsArray.forEach((plant) => {
     // Create a new array to hold whether or not plant should be watered on each day
@@ -32,7 +34,7 @@ const Calendar = (props) => {
       daysUntil--;
 
       // Grab whether or not it will rain on this day
-      let willRain = rainDays[day];
+      let willRain = precipArray[day];
 
       // If it will rain on this day...
       if (willRain) {
@@ -79,7 +81,7 @@ const Calendar = (props) => {
       <Day
         key={day}
         day={day}
-        willRain={rainDays[day]}
+        weatherArray={weatherArray[day]}
         plantWaterArray={plantWaterArray}
       />
     );

@@ -29,16 +29,14 @@ router.route("/weather/:zip_code").get(function (req, res) {
       }`
     )
     .then((response) => {
-      const rainDays = [];
+      const weatherArray = [];
       response.data.daily.forEach((element) => {
-        // console.log("weather is: ",element.weather[0].main);
-        if (element.weather[0].main === "Rain") {
-          rainDays.push(true);
-        } else {
-          rainDays.push(false);
-        }
+        weatherArray.push({
+          weather: element.weather[0].main,
+          date: element.dt,
+        });
       });
-      res.json(rainDays);
+      res.json(weatherArray);
     });
   // axios
   //   .get(
