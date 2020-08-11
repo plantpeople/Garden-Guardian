@@ -3,16 +3,19 @@ import PlantCard from "./PlantCard";
 import Calendar from "./Calendar";
 import API from "../util/API";
 import "../index.css";
+
 const GardenPage = (props) => {
   const [plantsArray, setPlantsArray] = useState(props.plantsArray);
   const [weatherLoaded, setWeatherLoaded] = useState(false);
-  const [rainDays, setRainDays] = useState([]);
+  const [weatherArray, setweatherArray] = useState([]);
+
   console.log("plants array", props.plantsArray, plantsArray);
+
   const getWeather = () => {
     console.log("getWeather called");
     API.getWeather(53202)
       .then((response) => {
-        setRainDays(response.data);
+        setweatherArray(response.data);
         setWeatherLoaded(true);
       })
       .catch(console.log);
@@ -20,6 +23,16 @@ const GardenPage = (props) => {
   useEffect(() => {
     setPlantsArray(props.plantsArray);
   });
+
+  var precipArray = [];
+
+weatherArray.forEach( day => {
+        if (day === "Rain") {
+          precipArray.push(true);
+        } else {
+          precipArray.push(false);
+        }
+});
 
   useLayoutEffect(getWeather, []);
 
@@ -47,7 +60,7 @@ const GardenPage = (props) => {
         <div className="plants">{plantCards}</div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
         {weatherLoaded && (
-          <Calendar plantsArray={plantsArray} rainDays={rainDays} />
+          <Calendar plantsArray={plantsArray} weatherArray={weatherArray} precipArray={precipArray}/>
         )}
       </div>
     </div>
