@@ -15,6 +15,10 @@ export default {
     return axios.post("/api/add-plant", plant);
   },
 
+  addNote: (note) => {
+    return axios.post("/api/add-note", note);
+  },
+
   getWeather: (zip) => {
     return axios.get("/weather/" + zip);
   },

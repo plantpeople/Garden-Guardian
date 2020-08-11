@@ -2,7 +2,6 @@ module.exports = (sequelize, DataTypes) => {
   const Plant = sequelize.define("Plant", {
     name: DataTypes.STRING,
     image: DataTypes.STRING,
-    notes: DataTypes.STRING,
     inGarden: DataTypes.BOOLEAN,
     waterDays: DataTypes.INTEGER,
 
@@ -18,9 +17,13 @@ module.exports = (sequelize, DataTypes) => {
   Plant.associate = (models) => {
     Plant.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false,
-      },
-    });
+        allowNull: true,
+      },  
+    },
+    Plant.hasMany(models.Note, {
+      onDelete: "cascade",
+    }),
+  );
   };
   return Plant;
 };

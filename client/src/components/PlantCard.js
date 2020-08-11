@@ -15,14 +15,19 @@ const PlantCard = (props) => {
   } = props;
 
   const [waterDays, setWaterDays] = useState(props.plant.waterDays);
-
+  const [inputValue, setInputValue] = useState('')
+  const [notes, setNotes] = useState(props.plant.notes.map(e=>e.note))
   return (
     <div className="card-container">
       <div className="card">
         <div className="img-container">
           {/* TODO: Figure out a good way to resize images to fit card */}
           <img name={props.name} src={props.plant.image} alt="plant" />
+
+
         </div>
+
+
 
         <div className="content">
           <p>
@@ -61,6 +66,15 @@ const PlantCard = (props) => {
           <button className="add-btn" onClick={() => props.addToGarden(props.name, props.imageUrl)}>
             Add to my garden
           </button>*/}
+        </div>
+
+        <div className="notes">
+          <p>this is for notes</p>
+          <input id="notesInput" type="text" value={inputValue} onChange={(event)=>{
+            setInputValue(event.target.value)
+          }}/>
+          <button onClick={()=>{props.addNote(props.plant,inputValue); setNotes([...notes, inputValue]); setInputValue('')}}>Submit</button>
+          {notes.map((e,i)=>(<p id={i}>{e}</p>))}
         </div>
       </div>
     </div>

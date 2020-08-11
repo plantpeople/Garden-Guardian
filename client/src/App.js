@@ -71,6 +71,14 @@ class App extends Component {
 
   onLogin(user, token) {
     this.setState({ userId: user.id, token, user: user, plants: user.plants });
+    console.log(user)
+  }
+
+  addNote(plant, note){
+    plant.notes.push(note)
+    API.addNote({note:note, plantId: plant.id}).then((response)=>{
+      
+    })
   }
 
   render() {
@@ -98,11 +106,15 @@ class App extends Component {
               <GardenPage
                 plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
                 movePlant={this.movePlant.bind(this)}
+                deletePlant={this.deletePlant.bind(this)}
+                addNote={this.addNote.bind(this)}
               />
             ) : (
               <LikedPage
                 plantsArray={this.state.plants.filter((p) => !p.inGarden)}
                 movePlant={this.movePlant.bind(this)}
+                deletePlant={this.deletePlant.bind(this)}
+                addNote={this.addNote.bind(this)}
               />
             )}
 
