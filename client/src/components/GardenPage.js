@@ -37,6 +37,7 @@ const GardenPage = (props) => {
         name: "Move to Likes",
         handler: () => props.movePlant(plant),
       }}
+      addNote={props.addNote}
     />
   ));
 

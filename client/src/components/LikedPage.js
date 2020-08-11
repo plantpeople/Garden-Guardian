@@ -25,6 +25,9 @@ const LikedPage = (props) => {
         name: "Move to Garden",
         handler: () => props.movePlant(plant),
       }}
+
+      addNote={props.addNote}
+
     />
   ));
 

@@ -20,7 +20,8 @@ class Search extends Component {
         const resultsArray = response.data.map((e) => {
           return {
             name: e.common_name,
-            image: e.image_url
+            image: e.image_url,
+            notes: []
           }
         });
         this.setState({ searchResults: resultsArray });

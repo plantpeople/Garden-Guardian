@@ -39,11 +39,21 @@ router.route("/api/user").post(function (req, res) {
       });
     } else {
       console.log("db user exists");
-      db.Plant.findAll({ where: { UserId: dbUser.id } }).then((plants) => {
+      db.Plant.findAll({ where: { UserId: dbUser.id } }).then((dbPlants) => {
         console.log("PLANTS");
-        console.log(plants);
-        dbUser.dataValues.plants = plants.map((p) => p.dataValues);
-        res.json(dbUser);
+        const plants = []
+        notePromises = dbPlants.map((p) => {
+          plants.push(p.dataValues)
+          return db.Note.findAll({where: {PlantId: p.dataValues.id}})
+        })
+        Promise.all(notePromises).then(dbNotes=>{
+          dbNotes.forEach((notes,i)=>{
+            plants[i].notes = notes.map(n=>n.dataValues)
+          })
+   
+        console.log(dbPlants);
+        dbUser.dataValues.plants =plants 
+        res.json(dbUser);     })
         // res.json("hello");
       });
     }
@@ -70,6 +80,15 @@ router.route("/api/add-plant").post(function (req, res) {
     waterDays: 3,
   }).then(function (dbPlant) {
     res.json(dbPlant);
+  });
+});
+
+router.route("/api/add-note").post(function (req, res){
+  db.Note.create({
+    note: req.body.note,
+    PlantId: req.body.plantId
+  }).then(function (dbNote){
+    res.json(dbNote);
   });
 });
 
