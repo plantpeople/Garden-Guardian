@@ -42,25 +42,14 @@ const Login = (props) => {
   return (
     <div className="login">
       <button
+        style={{backgroundColor: user? "red" : undefined}}
         className="button-2"
-        onClick={() => {
-          loginWithRedirect();
-        }}
+        onClick={user? logout : loginWithRedirect}
       >
-        Login
+        {user?"Logout":"Login"}
       </button>
-      <button className="button-2" onClick={logout}>
-        Logout
-      </button>
-      <button
-        className="button-2"
-        onClick={() => {
-          console.log(user);
-          console.log(isAuthenticated);
-        }}
-      >
-        Log user
-      </button>
+
+
       {isAuthenticated && (
         <>
           <div>

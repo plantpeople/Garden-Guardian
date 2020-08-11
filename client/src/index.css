@@ -15,9 +15,9 @@ body {
 }
 
 .login {
-  margin: auto;
+  margin: ;
   display: flex;
-  margin-bottom: 20%;
+  margin-bottom: 10%;
 }
 
 .username {
@@ -27,10 +27,10 @@ body {
 
 .button-2 {
   font-family: "Antic Slab", serif;
-  font-size: 18px;
+  font-size: 15px;
   background-color: #558b2f;
   color: white;
-  width: 15%;
+  width: fit-content;
   height: 50px;
   margin-left: 1%;
   padding: 1%;
