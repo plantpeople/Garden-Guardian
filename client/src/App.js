@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import Search from "./components/Search";
-import PlantCard from "./components/PlantCard";
 import Login from "./components/Login";
 import GardenPage from "./components/GardenPage";
 import LikedPage from "./components/LikedPage";
@@ -12,8 +11,8 @@ import API from "./util/API";
 
 class App extends Component {
   state = {
-    showGarden: false,
-  };
+    showGarden: true,
+	};
 
   //need to make MyGarden model? component? both? myGarden = plantsAdded...?
   //need to make call to backend
@@ -35,7 +34,6 @@ class App extends Component {
       userId: this.state.userId,
       inGarden: inGarden,
     };
-    console.log(newPlant);
 
     // TODO: fix userId being undefined
 
@@ -43,16 +41,17 @@ class App extends Component {
       .then((dbPlant) => {
         //need to show user that the plant has been 'added' to their garden
         //incorporate catch method in case sthg wrong happens
+        dbPlant.data.notes = [];
+        const plants = [...this.state.plants, dbPlant.data];
+        this.setState({ plants: plants });
       })
       .catch((err) => console.log(err));
-    console.log("Clicking this button will add the plant to garden");
   }
 
   movePlant(plant) {
     plant.inGarden = !plant.inGarden;
 
     API.updatePlant(plant).then((response) => {
-      console.log(this.state.plants);
       this.setState({ plants: this.state.plants });
     });
   }
@@ -60,23 +59,23 @@ class App extends Component {
   deletePlant(plant) {
     API.deletePlant(plant.id)
       .then((dbPlant) => {
-        console.log("Delete plant .then");
+        const plants = this.state.plants.filter((e) => e.id !== plant.id);
         this.setState({
-          plants: this.state.plants.filter((e) => e.id !== plant.id),
+          plants: plants,
         });
       })
       .catch((err) => console.log(err));
-    console.log("Delete plant");
   }
 
   onLogin(user, token) {
     this.setState({ userId: user.id, token, user: user, plants: user.plants });
-    console.log(user)
   }
 
   addNote(plant, note) {
     plant.notes.push(note)
+
     API.addNote({ note: note, plantId: plant.id }).then((response) => {
+
 
     })
   }
@@ -85,30 +84,28 @@ class App extends Component {
     return (
       <div className="mainContent">
 
-        <div className="login">
-          <button
-            className="button-2"
-            onClick={() => {
-              this.setState({ inGarden: !this.state.inGarden });
-            }}  >
-            Change to {!this.state.inGarden ? "Garden Page" : "Likes Page"}
-          </button>
-          <Login onLogin={this.onLogin.bind(this)} /></div>
+      <div className="login">  <button
+          className="button-2"
+          onClick={() => {
+            this.setState({ showGarden: !this.state.showGarden });
+          }}
+        >
+          Change to {!this.state.showGarden ? "Garden Page" : "Likes Page"}
+        </button>
+        <Login onLogin={this.onLogin.bind(this)} /></div>
+        <h1 className="logo">Garden Guardians</h1>
+        <Search
+          className="search-container"
+          savePlant={this.savePlant.bind(this)}
+        />
 
-       <div className="background-logo">
-          <img src={require("./logo/logoMark.png")} alt="logomark" className="logomark"/>
-      </div>
-          <Search
-            className="search-container"
-            savePlant={this.savePlant.bind(this)}
-          />
       
         {this.state.user && (
           <div>
 
-            {this.state.inGarden ? (
+            {this.state.showGarden ? (
               <GardenPage
-                plantsArray={this.state.user.plants.filter((p) => p.inGarden)}
+                plantsArray={this.state.plants.filter((p) => p.inGarden)}
                 movePlant={this.movePlant.bind(this)}
                 deletePlant={this.deletePlant.bind(this)}
                 addNote={this.addNote.bind(this)}

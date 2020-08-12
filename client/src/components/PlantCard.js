@@ -44,9 +44,9 @@ const PlantCard = (props) => {
                 onChange={(event) => {
                   setWaterDays(event.target.value);
                   // Update the plant in the database when water days dropdown is changed
-                  const updatedPlant = { ...props.plant };
+                  const updatedPlant = props.plant;
                   updatedPlant.waterDays = event.target.value;
-                  API.updatePlant(updatedPlant);
+                  props.updatePlant(updatedPlant);
                 }}
               >
                 <option value="1">1</option>
@@ -67,7 +67,7 @@ const PlantCard = (props) => {
             Add to my garden
           </button>*/}
         </div>
-
+        {!search && (
         <div className="notes">
           <p>this is for notes</p>
           <input id="notesInput" type="text" value={inputValue} onChange={(event)=>{
@@ -76,6 +76,7 @@ const PlantCard = (props) => {
           <button onClick={()=>{props.addNote(props.plant,inputValue); setNotes([...notes, inputValue]); setInputValue('')}}>Submit</button>
           {notes.map((e,i)=>(<p id={i}>{e}</p>))}
         </div>
+        )}
       </div>
     </div>
   );

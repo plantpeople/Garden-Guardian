@@ -51,9 +51,9 @@ router.route("/api/user").post(function (req, res) {
             plants[i].notes = notes.map(n=>n.dataValues)
           })
    
-        console.log(dbPlants);
-        dbUser.dataValues.plants =plants 
-        res.json(dbUser);     })
+         dbUser.dataValues.plants = plants;
+         res.json(dbUser);
+        });
         // res.json("hello");
       });
     }
@@ -96,7 +96,6 @@ router.route("/api/plant").put(function (req, res) {
   db.Plant.update(req.body, {
     where: { id: req.body.id },
   }).then((dbPlant) => {
-    console.log("hello")
     res.json(dbPlant)
   });
 });
