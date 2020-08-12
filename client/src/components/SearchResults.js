@@ -11,7 +11,7 @@ const SearchResults = (props) => {
     <PlantCard
       className="resultCard"
       garden={false}
-      button1={{ name: "Save Plant", handler: () => savePlant(plant, true) }}
+      button1={{ name: "Add to Garden", handler: () => savePlant(plant, true) }}
       button2={{ name: "Like Plant", handler: () => savePlant(plant, false) }}
       key={index}
       plant={plant}

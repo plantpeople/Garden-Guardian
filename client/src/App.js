@@ -74,31 +74,35 @@ class App extends Component {
     console.log(user)
   }
 
-  addNote(plant, note){
+  addNote(plant, note) {
     plant.notes.push(note)
-    API.addNote({note:note, plantId: plant.id}).then((response)=>{
-      
+    API.addNote({ note: note, plantId: plant.id }).then((response) => {
+
     })
   }
 
   render() {
     return (
       <div className="mainContent">
-      <div className="login">  <button
-          className="button-2"
-          onClick={() => {
-            this.setState({ inGarden: !this.state.inGarden });
-          }}
-        >
-          Change to {!this.state.inGarden ? "Garden Page" : "Likes Page"}
-        </button>
-        <Login onLogin={this.onLogin.bind(this)} /></div>
-        <h1 className="logo">Garden Guardians</h1>
-        <Search
-          className="search-container"
-          savePlant={this.savePlant.bind(this)}
-        />
 
+        <div className="login">
+          <button
+            className="button-2"
+            onClick={() => {
+              this.setState({ inGarden: !this.state.inGarden });
+            }}  >
+            Change to {!this.state.inGarden ? "Garden Page" : "Likes Page"}
+          </button>
+          <Login onLogin={this.onLogin.bind(this)} /></div>
+
+       <div className="background-logo">
+          <img src={require("./logo/logoMark.png")} alt="logomark" className="logomark"/>
+      </div>
+          <Search
+            className="search-container"
+            savePlant={this.savePlant.bind(this)}
+          />
+      
         {this.state.user && (
           <div>
 
@@ -110,13 +114,13 @@ class App extends Component {
                 addNote={this.addNote.bind(this)}
               />
             ) : (
-              <LikedPage
-                plantsArray={this.state.plants.filter((p) => !p.inGarden)}
-                movePlant={this.movePlant.bind(this)}
-                deletePlant={this.deletePlant.bind(this)}
-                addNote={this.addNote.bind(this)}
-              />
-            )}
+                <LikedPage
+                  plantsArray={this.state.plants.filter((p) => !p.inGarden)}
+                  movePlant={this.movePlant.bind(this)}
+                  deletePlant={this.deletePlant.bind(this)}
+                  addNote={this.addNote.bind(this)}
+                />
+              )}
 
           </div>
         )}
