@@ -33,12 +33,16 @@ const GardenPage = (props) => {
   });
 
   useLayoutEffect(getWeather, []);
-
+  const updatePlant = (updatedPlant) => {
+    API.updatePlant(updatedPlant).then((dbPlant) => {
+      setPlantsArray([...plantsArray]);
+    });
+  };
   const plantCards = plantsArray.map((plant) => (
     <PlantCard
       plant={plant}
       garden={true}
-      handleClick={() => console.log("button clicked")}
+      updatePlant={updatePlant}
       key={plant.id}
       button1={{
         name: "Delete Plant",
