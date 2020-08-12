@@ -24,6 +24,9 @@ td {
 }
 .background-logo {
   background-color: white;
+  /* border-bottom-color: #c6ecc6;
+  border-bottom-style: outset;
+  border-bottom-width: 1em; */
 }
 .mainContent {
   font-family: "Antic Slab", serif;
