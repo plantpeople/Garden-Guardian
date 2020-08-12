@@ -71,16 +71,19 @@ class App extends Component {
     this.setState({ userId: user.id, token, user: user, plants: user.plants });
   }
 
-  addNote(plant, note){
+  addNote(plant, note) {
     plant.notes.push(note)
-    API.addNote({note:note, plantId: plant.id}).then((response)=>{
-			   
+
+    API.addNote({ note: note, plantId: plant.id }).then((response) => {
+
+
     })
   }
 
   render() {
     return (
       <div className="mainContent">
+
       <div className="login">  <button
           className="button-2"
           onClick={() => {
@@ -96,6 +99,7 @@ class App extends Component {
           savePlant={this.savePlant.bind(this)}
         />
 
+      
         {this.state.user && (
           <div>
 
@@ -107,13 +111,13 @@ class App extends Component {
                 addNote={this.addNote.bind(this)}
               />
             ) : (
-              <LikedPage
-                plantsArray={this.state.plants.filter((p) => !p.inGarden)}
-                movePlant={this.movePlant.bind(this)}
-                deletePlant={this.deletePlant.bind(this)}
-                addNote={this.addNote.bind(this)}
-              />
-            )}
+                <LikedPage
+                  plantsArray={this.state.plants.filter((p) => !p.inGarden)}
+                  movePlant={this.movePlant.bind(this)}
+                  deletePlant={this.deletePlant.bind(this)}
+                  addNote={this.addNote.bind(this)}
+                />
+              )}
 
           </div>
         )}

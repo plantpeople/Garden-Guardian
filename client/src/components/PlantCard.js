@@ -31,7 +31,7 @@ const PlantCard = (props) => {
 
         <div className="content">
           <p>
-            <strong> Name: {props.plant.name} </strong>
+            <strong> {props.plant.name} </strong>
           </p>
           <button onClick={button1.handler}>{button1.name}</button>
           <button onClick={button2.handler}>{button2.name}</button>
