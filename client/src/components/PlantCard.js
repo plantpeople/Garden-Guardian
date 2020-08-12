@@ -22,7 +22,7 @@ const PlantCard = (props) => {
       <div className="card">
         <div className="img-container">
           {/* TODO: Figure out a good way to resize images to fit card */}
-          <img name={props.name} src={props.plant.image} alt="plant" />
+          <img name={props.name} src={props.plant.image || `https://lh3.googleusercontent.com/proxy/Mm-l6o43kn4Ih3Lo4oGGHOLvCxllJ0uqUN1K4qj86JR7m41Itm3D0kfE-zCGmaG20CJeQwAhVL4kxizxS-joADJ_Rg2UQTnPXpRCpJT24v-_rpLE6dfXNXjx5wbxK2Y`} alt="plant" />
 
 
         </div>
@@ -38,7 +38,7 @@ const PlantCard = (props) => {
 
           {garden ? (
             <div>
-              <span>Water this</span>
+              <span>Water this every </span>
               <select
                 value={waterDays}
                 onChange={(event) => {
@@ -57,7 +57,7 @@ const PlantCard = (props) => {
                 <option value="6">6</option>
                 <option value="7">7</option>
               </select>
-              <span>times per week</span>
+              <span>day(s)</span>
             </div>
           ) : null}
 
@@ -69,8 +69,8 @@ const PlantCard = (props) => {
         </div>
 
         <div className="notes">
-          <p>this is for notes</p>
-          <input id="notesInput" type="text" value={inputValue} onChange={(event)=>{
+    
+          <input id="notesInput" placeholder="Got a plant note?" type="text" value={inputValue} onChange={(event)=>{
             setInputValue(event.target.value)
           }}/>
           <button onClick={()=>{props.addNote(props.plant,inputValue); setNotes([...notes, inputValue]); setInputValue('')}}>Submit</button>
