@@ -60,7 +60,8 @@ const GardenPage = (props) => {
     <div className="myGarden">
       <h1 className="logo-1">My Garden</h1>
       <div>
-        <div className="plants">{plantCards}</div>
+        <div className="plants">{ plantCards.length ? plantCards: <h2>Add your first plant!</h2>} 
+       </div>
         {/* Create a Calendar w/ water data from all plants in My Garden */}
         {weatherLoaded && (
           <Calendar

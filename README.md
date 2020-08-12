@@ -1,17 +1,33 @@
 # OBJECTIVE
-Search for plants and add them to your garden. Acts as an easy way to access information about plants in your garden. Conveniently refer to forecast to help inform your garden's needs, and rely on calendar to notify you when your garden or specific plants are in need of watering.
+Search for plants and add them to your garden! Garden Guardian serves as an easy way to access information about plants you already have in your garden, or to find out if a certain plant would be a good fit in your garden. Conveniently refer to forecast to help inform your garden's needs, and rely on calendar to notify you when your garden or specific plants are in need of watering.
 
-# TECHNOLOGIES TO BE USED
-Technology 1 - Auth0
-Technology 2 - Material design
+# TECHNOLOGY STACK
+
+1. Frontend
+- Javascript
+- HTML
+- CSS
+
+2. Backend
+- Open Weather Maps API
+- Trefle API
+- Authentication with Auth0
+- Javascript
+- NodeJS
+- ExpressJS web server
+- Sequelize ORM
+- MySQL
+
+
 
 
 # APP CONTENTS
 
 1. Home page
     a. Search bar
-    b. Text with general information about the app/what the user can do
-    c. Login button - takes user to an Auth0 login page and then redirects back to our app (technology #1)
+    b. Text with general information n Auth0 login page and then redirects back to our app (technology #1)
+about the app/what the user can do ****
+    c. Login button - takes user to a
 
 2. Search results
     a. Cards containing plants matching the search query
@@ -33,6 +49,10 @@ Technology 2 - Material design
 <!-- ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png) -->
 
 
-<p align="center"><img src=""
-     alt="Phone"
-     width = 150px /></p>
+# DEMO
+Garden Guardian is deployed to Heroku. Please check it out here. ***need to link
+
+What is the direct link to the project? Quick start options:
+The code is hosted here: No Regrets.
+
+

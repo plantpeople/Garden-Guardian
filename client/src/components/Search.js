@@ -24,7 +24,9 @@ class Search extends Component {
             notes: []
           }
         });
-        this.setState({ searchResults: resultsArray });
+      let filteredArray = resultsArray.filter(e => e.name);
+         this.setState({ searchResults: filteredArray });
+      
       })
       .catch((error) => console.log(error));
   }
