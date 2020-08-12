@@ -1,7 +1,24 @@
-# OBJECTIVE
-Search for plants and add them to your garden! Garden Guardian serves as an easy way to access information about plants you already have in your garden, or to find out if a certain plant would be a good fit in your garden. Conveniently refer to forecast to help inform your garden's needs, and rely on calendar to notify you when your garden or specific plants are in need of watering.
 
-# TECHNOLOGY STACK
+# OBJECTIVE (AJ)
+Knowing when to water, or how much, is many gardeners' top challenge when it comes to keeping their plants alive and well. 
+Garden Guardian serves as an easy-to-use virtual tool that takes the guesswork out of watering! 
+Users can search to find any plant or crop imaginable, choose to save it to their "likes" page, or add it to their garden right away. 
+For each plant, the user tells Garden Guardian how often it needs to be watered. 
+Using real-time weather data, Garden Gaurdian delivers all you need to know regarding each plant's watering needs for the week ahead.
+
+# DEMO (AJ)
+Garden Guardian is deployed to Heroku. Check it out at https://gardenguardian.herokuapp.com/ 
+
+
+
+
+# PARTICULAR "PROUD OF" (KAYLA)
+- A key Garden Guardian piece is the calendar portion. This demanded careful coding to make weather data and user input regarding each particular plant's watering needs work in harmoney in order to deliver an easy-to-read and helpful look at the week ahead for the user.
+
+
+
+
+# TECHNOLOGY STACK (JACOB)
 
 1. Frontend
 - Javascript
@@ -21,6 +38,14 @@ Search for plants and add them to your garden! Garden Guardian serves as an easy
 
 
 
+# CHALLENGES (ASHLEY)
+
+- Deploying to Heroku proved challenging; specifically, we had to alter CSS so that our homepage background didn't have the opacity it originally did, unfortunately.
+
+- Re-rendering upon state changes.
+
+
+
 # APP CONTENTS
 
 1. Home page
@@ -36,23 +61,21 @@ about the app/what the user can do ****
 3. Garden Overview page
     a. Cards containing plants added to garden
     b. Each card has an “Remove from garden” button
-    c. Calendar (??)
-
-4. Plant Info page
-    a. Picture
-    b. Plant data
-    c. Add to garden button
+    c. Calendar
 
 
 # WIREFRAMES
-![Image of Wireframes](.\img\Wireframes-complete-navigation.png)
-<!-- ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png) -->
+![Image of Wireframes](./img/Wireframes-complete-navigation.png)
 
 
-# DEMO
-Garden Guardian is deployed to Heroku. Please check it out here. ***need to link
+# SCREENSHOT
+![Image of Homepage](./img/screenshot-home.png)
 
-What is the direct link to the project? Quick start options:
-The code is hosted here: No Regrets.
+    
+
+
+
+
+
 
 
