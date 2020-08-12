@@ -42,7 +42,7 @@ const Login = (props) => {
   return (
     <div className="login">
       <button
-        style={{backgroundColor: user? "red" : undefined}}
+        style={{backgroundColor: user? "gray" : undefined}}
         className="button-2"
         onClick={user? logout : loginWithRedirect}
       >
@@ -53,7 +53,7 @@ const Login = (props) => {
       {isAuthenticated && (
         <>
           <div>
-            <p className="username">{user.email}</p>
+            <p className="username">Hey, {user.email}!</p>
           </div>
         </>
       )}
