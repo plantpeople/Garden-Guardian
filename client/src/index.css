@@ -17,10 +17,13 @@ td {
   padding-right: 16px;
 }
 .logomark {
-  width: 70%;
+  width: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.background-logo {
+  background-color: white;
 }
 .mainContent {
   font-family: "Antic Slab", serif;

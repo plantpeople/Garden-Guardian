@@ -95,8 +95,9 @@ class App extends Component {
           </button>
           <Login onLogin={this.onLogin.bind(this)} /></div>
 
+       <div className="background-logo">
           <img src={require("./logo/logoMark.png")} alt="logomark" className="logomark"/>
-
+      </div>
           <Search
             className="search-container"
             savePlant={this.savePlant.bind(this)}
