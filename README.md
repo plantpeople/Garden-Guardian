@@ -50,9 +50,6 @@ about the app/what the user can do ****
 
 
 # DEMO
-Garden Guardian is deployed to Heroku. Please check it out here. ***need to link
-
-What is the direct link to the project? Quick start options:
-The code is hosted here: No Regrets.
+Garden Guardian is deployed to Heroku. Please check it out here: https://gardenguardian.herokuapp.com/
 
 
